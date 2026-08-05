@@ -7,7 +7,7 @@ I'm passionate about building modern web applications and AI-powered projects.
 - 🌱 Learning AI & Machine Learning
 - 💻 Full Stack Development
 - 🚀 Open Source Contributor
-- 📫 Reach me: dg7842661@gmail@gmail.com
+- 📫 Reach me: dg7842661@gmaill.com
 
 - ## 🌐 Connect with me
 
@@ -29,7 +29,7 @@ I'm passionate about building modern web applications and AI-powered projects.
 
 <p align="center">
 
-<img src="https://skillicons.dev/icons?i=html,css,javascript,react,nextjs,nodejs,express,mongodb,mysql,python,java,c,cpp,git,github,vscode,figma,tailwind,bootstrap,firebase"/>
+<img src="https://skillicons.dev/icons?i=html,css,javascript,react,nextjs,nodejs,express,mongodb,mysql,python,java,c,git,github,vscode,tailwind,bootstrap,firebase"/>
 
 </p>
 
