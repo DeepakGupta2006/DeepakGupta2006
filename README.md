@@ -29,7 +29,7 @@ I'm passionate about building modern web applications and AI-powered projects.
 
 <p align="center">
 
-<img src="https://skillicons.dev/icons?i=html,css,javascript,react,nextjs,nodejs,express,mongodb,mysql,python,java,c,git,github,vscode,tailwind,bootstrap,firebase"/>
+<img src="https://skillicons.dev/icons?i=html,css,javascript,react,nextjs,nodejs,express,mongodb,mysql,python,java,c,github,tailwind,bootstrap"/>
 
 </p>
 
