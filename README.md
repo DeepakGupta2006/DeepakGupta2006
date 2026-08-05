@@ -1,14 +1,3 @@
-Hi 👋
-I'm Deepak Gupta
-
-Full Stack Developer
-AI/ML Enthusiast
-Open Source Learner
-
-<p align="center">
-<img src="YOUR_BANNER_LINK">
-</p>
-
 # Hi 👋, I'm Deepak Gupta
 
 ### Full Stack Developer | AI/ML Enthusiast | Python Developer
@@ -44,15 +33,6 @@ I'm passionate about building modern web applications and AI-powered projects.
 
 </p>
 
-## 📊 GitHub Stats
-
-<p align="center">
-
-<img src="https://github-readme-stats.vercel.app/api?username=DeepakGupta2006&show_icons=true&theme=tokyonight"/>
-
-<img src="https://github-readme-streak-stats.herokuapp.com/?user=DeepakGupta2006&theme=tokyonight"/>
-
-</p>
 
 <p align="center">
 <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=DeepakGupta2006&layout=compact&theme=tokyonight"/>
