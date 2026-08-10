@@ -80,13 +80,6 @@
 
 ---
 
-### 📈 Contribution Graph
-
-<p align="center">
-  <img src="https://github-readme-activity-graph.vercel.app/graph?username=your-github-username&theme=react-dark" alt="contribution graph" />
-</p>
-
----
 
 <p align="center">
   <i>⭐️ From <a href="https://github.com/your-github-username">your-github-username</a> — thanks for stopping by!</i>
