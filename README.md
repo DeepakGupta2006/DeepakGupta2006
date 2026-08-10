@@ -16,10 +16,6 @@
   </a>
 </p>
 
-<p align="center">
-  <img src="https://komarev.com/ghpvc/?username=your-github-username&label=Profile%20Views&color=blueviolet&style=flat" alt="profile views" />
-  <img src="https://img.shields.io/github/followers/your-github-username?label=Followers&style=social" alt="followers" />
-</p>
 
 ---
 
@@ -29,7 +25,7 @@
 - 🌱 I'm currently learning **Technology/Framework**
 - 👯 I'm looking to collaborate on **Open Source Projects**
 - 💬 Ask me about **your expertise areas**
-- 📫 How to reach me: **your.email@example.com**
+- 📫 How to reach me: **dg7842661@gmail.com**
 - ⚡ Fun fact: **something interesting about you**
 
 ---
@@ -46,7 +42,6 @@
   <img src="https://img.shields.io/badge/PostgreSQL-4169E1?style=for-the-badge&logo=postgresql&logoColor=white" />
   <img src="https://img.shields.io/badge/Docker-2496ED?style=for-the-badge&logo=docker&logoColor=white" />
   <img src="https://img.shields.io/badge/Git-F05032?style=for-the-badge&logo=git&logoColor=white" />
-  <img src="https://img.shields.io/badge/AWS-232F3E?style=for-the-badge&logo=amazon-aws&logoColor=white" />
 </p>
 
 ---
