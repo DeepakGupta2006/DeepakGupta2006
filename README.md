@@ -1,5 +1,5 @@
 <h1 align="center">I am Deepak</h1>
-<h3 align="center">A passionate Full Stack Developer from India</h3>
+<h3 align="center">A passionate Full Stack Developer</h3>
 
 <p align="center">
   <a href="https://linkedin.com/in/your-linkedin" target="_blank">
