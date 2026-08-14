@@ -21,7 +21,6 @@
 
 ### 🚀 About Me
 
-- 🔭 I'm currently working on **Project Name**
 - 🌱 I'm currently learning **Technology/Framework**
 - 👯 I'm looking to collaborate on **Open Source Projects**
 - 💬 Ask me about **your expertise areas**
