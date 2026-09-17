@@ -25,7 +25,7 @@
 - 👯 I'm looking to collaborate on **Open Source Projects**
 - 💬 Ask me about **your expertise areas**
 - 📫 How to reach me: **dg7842661@gmail.com**
-- ⚡ Fun fact: **something interesting about you**
+
 
 ---
 
