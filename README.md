@@ -1,6 +1,6 @@
 <div align="center">
   <img
-    src="assets/deepak-banner.png"
+    src="assets/deepak banner.png"
     alt="Deepak Gupta - Full Stack Developer"
     width="100%"
   />
