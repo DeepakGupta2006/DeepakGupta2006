@@ -19,14 +19,38 @@
 <p align="center">
   Building scalable web applications and intelligent AI solutions.
 </p>
-
 <p align="center">
-  <a href="https://github.com/DeepakGupta2006">
+
+  <!-- GitHub -->
+  <a href="https://github.com/DeepakGupta2006" target="_blank">
     <img src="https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white" alt="GitHub"/>
   </a>
+
+  <!-- LinkedIn -->
+  <a href="https://www.linkedin.com/in/https://www.linkedin.com/in/deepak-gupta-821945296/" target="_blank">
+    <img src="https://img.shields.io/badge/LinkedIn-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white" alt="LinkedIn"/>
+  </a>
+
+  <!-- Portfolio -->
+  <a href="https://deepak-portfolio-deepak-gupta-s-project.vercel.app" target="_blank">
+    <img src="https://img.shields.io/badge/Portfolio-00C7B7?style=for-the-badge&logo=vercel&logoColor=white" alt="Portfolio"/>
+  </a>
+
+  <!-- Email -->
   <a href="mailto:dg7842661@gmail.com">
     <img src="https://img.shields.io/badge/Email-D14836?style=for-the-badge&logo=gmail&logoColor=white" alt="Email"/>
   </a>
+
+  <!-- WhatsApp -->
+  <a href="https://wa.me/8806627054" target="_blank">
+    <img src="https://img.shields.io/badge/WhatsApp-25D366?style=for-the-badge&logo=whatsapp&logoColor=white" alt="WhatsApp"/>
+  </a>
+
+  <!-- Phone -->
+  <a href="tel:+918806627054">
+    <img src="https://img.shields.io/badge/Phone-008000?style=for-the-badge&logo=phone&logoColor=white" alt="Phone"/>
+  </a>
+
 </p>
 
 ---
