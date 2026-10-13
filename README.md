@@ -1,3 +1,52 @@
+<div align="center">
+  <img
+    src="assets/deepak-banner.png"
+    alt="Deepak Gupta - Full Stack Developer"
+    width="100%"
+  />
+</div>
+
+<h2 align="center">🚀 Professional Overview</h2>
+
+<p align="center">
+  Full-Stack Developer | AI/ML Enthusiast | Computer Science Student
+</p>
+
+<p align="center">
+  Building scalable web applications and intelligent AI solutions.
+</p>
+
+---
+
+### 👨‍💻 About Me
+
+- 🎓 BCA Computer Science student.
+- 💻 Interested in Full-Stack Development and AI/ML.
+- 🤖 Building AI assistants using Python and local AI models.
+- 🌱 Continuously learning Data Structures and Algorithms.
+- 🎯 Goal: Build real-world projects and become a skilled software developer.
+
+### 🛠️ Technologies & Tools
+
+<p align="center">
+  <img src="https://skillicons.dev/icons?i=python,java,js,react,nodejs,mongodb,mysql,html,css,git,github" />
+</p>
+
+### 📊 GitHub Statistics
+
+<p align="center">
+  <img
+    src="https://github-readme-stats.vercel.app/api?username=DeepakGupta2006&show_icons=true&theme=tokyonight"
+    height="165"
+  />
+</p>
+
+---
+
+<p align="center">
+  💡 Code Today, Build Tomorrow, Become Better.
+</p>
+
 <h1 align="center">I am Deepak</h1>
 <h3 align="center">A passionate Full Stack Developer</h3>
 
