@@ -12,8 +12,6 @@
 
 <!-- ===================== INTRODUCTION ===================== -->
 
-<h1 align="center">Hey there! 👋 I'm Deepak Gupta</h1>
-
 <h3 align="center">
   Full-Stack Developer | AI/ML Enthusiast | BCA Computer Science Student
 </h3>
