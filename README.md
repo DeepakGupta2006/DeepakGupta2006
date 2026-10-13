@@ -21,11 +21,6 @@
 </p>
 <p align="center">
 
-  <!-- GitHub -->
-  <a href="https://github.com/DeepakGupta2006" target="_blank">
-    <img src="https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white" alt="GitHub"/>
-  </a>
-
   <!-- LinkedIn -->
   <a href="https://www.linkedin.com/in/deepak-gupta-821945296/" target="_blank">
     <img src="https://img.shields.io/badge/LinkedIn-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white" alt="LinkedIn"/>
