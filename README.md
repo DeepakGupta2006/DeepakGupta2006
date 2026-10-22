@@ -142,15 +142,6 @@
 
 **🛠️ Tech Stack:** React.js, Node.js, Express.js, MongoDB
 
-<p>
-  <a href="YOUR_FOOD_DELIVERY_REPO_URL">
-    <img src="https://img.shields.io/badge/Source_Code-181717?style=for-the-badge&logo=github&logoColor=white" />
-  </a>
-  <a href="YOUR_FOOD_DELIVERY_LIVE_DEMO_URL">
-    <img src="https://img.shields.io/badge/Live_Demo-00C853?style=for-the-badge&logo=vercel&logoColor=white" />
-  </a>
-</p>
-
 ---
 
 <!-- PROJECT 2: NEXTCART E-COMMERCE PLATFORM -->
@@ -180,15 +171,6 @@
 * 📱 Responsive design for multiple screen sizes.
 
 **🛠️ Tech Stack:** MongoDB, Express.js, React.js, Node.js (MERN Stack)
-
-<p>
-  <a href="YOUR_NEXTCART_REPO_URL">
-    <img src="https://img.shields.io/badge/Source_Code-181717?style=for-the-badge&logo=github&logoColor=white" />
-  </a>
-  <a href="YOUR_NEXTCART_LIVE_DEMO_URL">
-    <img src="https://img.shields.io/badge/Live_Demo-00C853?style=for-the-badge&logo=vercel&logoColor=white" />
-  </a>
-</p>
 
 ---
 
@@ -220,15 +202,6 @@
 
 **🛠️ Tech Stack:** Python, Machine Learning, NLP, Scikit-learn
 
-<p>
-  <a href="YOUR_FAKE_NEWS_REPO_URL">
-    <img src="https://img.shields.io/badge/Source_Code-181717?style=for-the-badge&logo=github&logoColor=white" />
-  </a>
-  <a href="YOUR_FAKE_NEWS_LIVE_DEMO_URL">
-    <img src="https://img.shields.io/badge/Live_Demo-00C853?style=for-the-badge&logo=streamlit&logoColor=white" />
-  </a>
-</p>
-
 ---
 
 <!-- PROJECT 4: FRIDAY AI VOICE ASSISTANT -->
@@ -258,15 +231,6 @@
 * 💻 System monitoring and process information using `psutil`.
 
 **🛠️ Tech Stack:** Python, Faster-Whisper, Ollama, Flask, sounddevice, psutil
-
-<p>
-  <a href="YOUR_FRIDAY_REPO_URL">
-    <img src="https://img.shields.io/badge/Source_Code-181717?style=for-the-badge&logo=github&logoColor=white" />
-  </a>
-  <a href="YOUR_FRIDAY_LIVE_DEMO_URL">
-    <img src="https://img.shields.io/badge/Watch_Demo-00C853?style=for-the-badge&logo=youtube&logoColor=white" />
-  </a>
-</p>
 
 ---
 
