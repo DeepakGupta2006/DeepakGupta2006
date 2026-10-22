@@ -124,6 +124,7 @@
   through an intuitive and responsive interface.
 </p>
 **🛠️ Tech Stack:**
+
 <p>
   <img src="https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB" />
   <img src="https://img.shields.io/badge/Node.js-43853D?style=for-the-badge&logo=node.js&logoColor=white" />
@@ -140,7 +141,7 @@
 * 📱 Responsive interface for desktop and mobile.
 * 🔐 Backend API integration and database management.
 
-**🛠️ Tech Stack:** React.js, Node.js, Express.js, MongoDB
+
 
 ---
 
@@ -153,6 +154,7 @@
   Customers can explore products, view product details, add items to their cart,
   and manage their shopping experience through a user-friendly interface.
 </p>
+**🛠️ Tech Stack:**
 
 <p>
   <img src="https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB" />
@@ -170,7 +172,7 @@
 * 📦 Order management and checkout workflow.
 * 📱 Responsive design for multiple screen sizes.
 
-**🛠️ Tech Stack:** MongoDB, Express.js, React.js, Node.js (MERN Stack)
+**
 
 ---
 
@@ -183,6 +185,7 @@
   an article is likely to be real or fake using a trained machine learning model
   and natural language processing techniques.
 </p>
+**🛠️ Tech Stack:**
 
 <p>
   <img src="https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white" />
@@ -200,7 +203,7 @@
 * ⚡ Provides predictions through a simple user interface.
 * 🧠 Demonstrates text classification and model integration.
 
-**🛠️ Tech Stack:** Python, Machine Learning, NLP, Scikit-learn
+
 
 ---
 
@@ -213,6 +216,7 @@
   model integration, and voice output to provide an interactive conversational experience.
   Built to explore the development of intelligent assistants and AI-powered automation.
 </p>
+**🛠️ Tech Stack:**
 
 <p>
   <img src="https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white" />
@@ -229,8 +233,6 @@
 * 💬 Text-based chat functionality.
 * ⚙️ Python-based assistant architecture.
 * 💻 System monitoring and process information using `psutil`.
-
-**🛠️ Tech Stack:** Python, Faster-Whisper, Ollama, Flask, sounddevice, psutil
 
 ---
 
