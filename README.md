@@ -41,11 +41,6 @@
     <img src="https://img.shields.io/badge/WhatsApp-25D366?style=for-the-badge&logo=whatsapp&logoColor=white" alt="WhatsApp"/>
   </a>
 
-  <!-- Phone -->
-  <a href="tel:+918806627054">
-    <img src="https://img.shields.io/badge/Phone-008000?style=for-the-badge&logo=phone&logoColor=white" alt="Phone"/>
-  </a>
-
 </p>
 
 ---
@@ -134,14 +129,12 @@
 
 **✨ Key Features**
 
-* 🍕 Browse food items and restaurant menus.
-* 🛒 Add, remove, and update cart items.
-* 👤 User registration and login.
-* 📦 Order placement and order management.
-* 📱 Responsive interface for desktop and mobile.
-* 🔐 Backend API integration and database management.
-
-
+- 🍕 Browse food items and restaurant menus.
+- 🛒 Add, remove, and update cart items.
+- 👤 User registration and login.
+- 📦 Order placement and order management.
+- 📱 Responsive interface for desktop and mobile.
+- 🔐 Backend API integration and database management.
 
 ---
 
@@ -165,14 +158,14 @@
 
 **✨ Key Features**
 
-* 🛍️ Product browsing and product detail pages.
-* 🔍 Product search and category filtering.
-* 🛒 Shopping cart and quantity management.
-* 👤 User authentication and account management.
-* 📦 Order management and checkout workflow.
-* 📱 Responsive design for multiple screen sizes.
+- 🛍️ Product browsing and product detail pages.
+- 🔍 Product search and category filtering.
+- 🛒 Shopping cart and quantity management.
+- 👤 User authentication and account management.
+- 📦 Order management and checkout workflow.
+- 📱 Responsive design for multiple screen sizes.
 
-**
+\*\*
 
 ---
 
@@ -196,14 +189,12 @@
 
 **✨ Key Features**
 
-* 📝 Accepts news text for analysis.
-* 🤖 Uses a trained machine learning classification model.
-* 🔤 Processes textual data using NLP techniques.
-* 📊 Predicts whether news is likely to be real or fake.
-* ⚡ Provides predictions through a simple user interface.
-* 🧠 Demonstrates text classification and model integration.
-
-
+- 📝 Accepts news text for analysis.
+- 🤖 Uses a trained machine learning classification model.
+- 🔤 Processes textual data using NLP techniques.
+- 📊 Predicts whether news is likely to be real or fake.
+- ⚡ Provides predictions through a simple user interface.
+- 🧠 Demonstrates text classification and model integration.
 
 ---
 
@@ -227,12 +218,12 @@
 
 **✨ Key Features**
 
-* 🎤 Voice input using speech recognition.
-* 🧠 AI-powered conversations using locally hosted Ollama models.
-* 🔊 Text-to-speech for spoken responses.
-* 💬 Text-based chat functionality.
-* ⚙️ Python-based assistant architecture.
-* 💻 System monitoring and process information using `psutil`.
+- 🎤 Voice input using speech recognition.
+- 🧠 AI-powered conversations using locally hosted Ollama models.
+- 🔊 Text-to-speech for spoken responses.
+- 💬 Text-based chat functionality.
+- ⚙️ Python-based assistant architecture.
+- 💻 System monitoring and process information using `psutil`.
 
 ---
 
@@ -267,13 +258,13 @@
 
 <div align="center">
 
-  <img
+<img
     src="https://github-readme-stats.vercel.app/api?username=DeepakGupta2006&show_icons=true&theme=tokyonight&hide_border=true"
     height="170"
     alt="GitHub Statistics"
   />
 
-  <img
+<img
     src="https://github-readme-stats.vercel.app/api/top-langs/?username=DeepakGupta2006&layout=compact&theme=tokyonight&hide_border=true"
     height="170"
     alt="Most Used Languages"
