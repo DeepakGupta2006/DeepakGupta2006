@@ -246,31 +246,8 @@
 ## 🎯 What I'm Working On
 
 - 🚀 Developing full-stack web applications.
-- 🤖 Improving my Python-based AI assistant.
 - 🧠 Strengthening Java and DSA problem-solving skills.
 - 🌐 Exploring AI integration with web applications.
-
----
-
-<!-- ===================== GITHUB STATISTICS ===================== -->
-
-## 📊 GitHub Statistics
-
-<div align="center">
-
-<img
-    src="https://github-readme-stats.vercel.app/api?username=DeepakGupta2006&show_icons=true&theme=tokyonight&hide_border=true"
-    height="170"
-    alt="GitHub Statistics"
-  />
-
-<img
-    src="https://github-readme-stats.vercel.app/api/top-langs/?username=DeepakGupta2006&layout=compact&theme=tokyonight&hide_border=true"
-    height="170"
-    alt="Most Used Languages"
-  />
-
-</div>
 
 ---
 
