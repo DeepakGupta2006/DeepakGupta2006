@@ -10,7 +10,7 @@ CONFIG = {
     "pill": "BUILD · SHIP · REPEAT",
     "site_label": "deepakgupta.vercel.app",
     "site_url": "https://deepak-portfolio-deepak-gupta-s-project.vercel.app/",
-    "bio": "Passionate about Full Stack Development, Java, and Artificial Intelligence.",
+    "bio": "I turn messy data and half-formed ideas into products that work, from React front-ends to ML pipelines.",
     "motto": "Build simple. Make it work. Then scale.",
     "photo": "photo.jpg",
     "chips": ["Developer", "Full-Stack", "Open Source", "Always Learning"],
@@ -22,14 +22,18 @@ CONFIG = {
         "Data & Ops":["MongoDB", "PostgreSQL", "Docker", "Git", "Linux"],
     },
     "projects": [
-        {"name": "ai-code-review-tool", "desc": "Paste code, get instant AI review feedback powered by an LLM API.",
-         "tags": ["React", "Node.js", "Groq"], "lang": "JavaScript", "color": "#facc15", "url": "https://github.com/DeepakGupta2006"},
-        {"name": "land-cover-unet", "desc": "Land-use classification on satellite imagery using a U-Net model.",
-         "tags": ["Python", "U-Net", "Remote Sensing"], "lang": "Python", "color": "#38bdf8", "url": "https://github.com/DeepakGupta2006"},
-        {"name": "time-capsule", "desc": "Write messages to your future self and unlock them on a chosen date.",
-         "tags": ["Next.js", "MongoDB"], "lang": "TypeScript", "color": "#818cf8", "url": "https://github.com/DeepakGupta2006"},
-        {"name": "your-next-idea", "desc": "A placeholder for the project you're about to ship. Edit me in build.py.",
-         "tags": ["Idea", "Soon"], "lang": "Python", "color": "#e879f9", "url": "https://github.com/DeepakGupta2006"},
+        {"name": "Zero Spoof", "desc": "Anti-spoofing system that detects fake faces, photos and replay attacks before they get access.",
+         "tags": ["Python", "OpenCV", "Deep Learning"], "lang": "Python", "color": "#34d399",
+         "url": "https://github.com/DeepakGupta2006?tab=repositories"},
+        {"name": "Fake News Detector", "desc": "NLP model that reads a news headline or article and tells you if it is real or fake.",
+         "tags": ["Python", "NLP", "scikit-learn", "Flask"], "lang": "Python", "color": "#38bdf8",
+         "url": "https://github.com/DeepakGupta2006?tab=repositories"},
+        {"name": "NextCart", "desc": "Full-stack shopping website with product pages, live cart, checkout and an admin panel.",
+         "tags": ["Next.js", "React", "MongoDB", "Tailwind"], "lang": "JavaScript", "color": "#818cf8",
+         "url": "https://github.com/DeepakGupta2006?tab=repositories"},
+        {"name": "Food Delivery", "desc": "Food ordering app with menu browsing, cart, order placing and order tracking.",
+         "tags": ["React", "Node.js", "Express", "MongoDB"], "lang": "JavaScript", "color": "#fb923c",
+         "url": "https://github.com/DeepakGupta2006?tab=repositories"},
     ],
     "sections": ["About Me", "Tech Stack", "Featured Projects", "GitHub Stats", "Contribution Snake"],
 }
@@ -158,23 +162,26 @@ def stack(c):
 
 def cards(c):
     for i, p in enumerate(c["projects"], 1):
-        W, H = 480, 178
-        lines = textwrap.wrap(p["desc"], 56)[:2]
-        desc = "".join(f'<text x="26" y="{84+i2*20}" font-family="{SANS}" font-size="13.5" fill="#94a3b8">{esc(l)}</text>' for i2, l in enumerate(lines))
+        W, H = 480, 216
+        lines = textwrap.wrap(p["desc"], 52)[:2]
+        desc = "".join(f'<text x="26" y="{88+i2*21}" font-family="{SANS}" font-size="13.5" fill="#94a3b8">{esc(l)}</text>' for i2, l in enumerate(lines))
         tx = 26; tg = ""
-        for t in p["tags"][:4]:
-            w = len(t)*7.2 + 22
-            tg += f'<g transform="translate({tx:.0f} 112)"><rect width="{w:.0f}" height="24" rx="12" fill="{C2}" fill-opacity=".14" stroke="{C2}" stroke-opacity=".5"/><text x="{w/2:.0f}" y="16" text-anchor="middle" font-family="{MONO}" font-size="11" fill="#c7d2fe">{esc(t)}</text></g>'
+        for t in p["tags"]:
+            w = len(t)*7.2 + 24
+            if tx + w > W - 26: break
+            tg += f'<g transform="translate({tx:.0f} 130)"><rect width="{w:.0f}" height="24" rx="12" fill="{p['color']}" fill-opacity=".12" stroke="{p['color']}" stroke-opacity=".55"/><text x="{w/2:.0f}" y="16" text-anchor="middle" font-family="{MONO}" font-size="11" fill="#e2e8f0">{esc(t)}</text></g>'
             tx += w + 8
         body = f'''<defs>{GRAD}<linearGradient id="g{i}" gradientUnits="userSpaceOnUse" x1="-480" x2="0" y1="0" y2="0" spreadMethod="repeat"><stop offset="0" stop-color="{C1}"/><stop offset=".5" stop-color="{C2}"/><stop offset="1" stop-color="{C3}"/><animateTransform attributeName="gradientTransform" type="translate" from="0 0" to="480 0" dur="5s" repeatCount="indefinite"/></linearGradient>
 <linearGradient id="bg{i}" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#131a2e"/><stop offset="1" stop-color="#0c1020"/></linearGradient></defs>
 <rect x="2" y="2" width="{W-4}" height="{H-4}" rx="16" fill="url(#bg{i})" stroke="url(#g{i})" stroke-width="1.6"/>
-<circle cx="{W-30}" cy="30" r="46" fill="{p['color']}" opacity=".08"/>
-<text x="26" y="46" font-family="{MONO}" font-size="17" font-weight="700" fill="{C1}">{esc(p["name"])}</text>
-<path d="M{W-42} 34l8-8m0 0h-6m6 0v6" stroke="#94a3b8" stroke-width="1.8" fill="none" stroke-linecap="round"/>
+<circle cx="{W-34}" cy="34" r="54" fill="{p['color']}" opacity=".09"/>
+<text x="{W-26}" y="40" text-anchor="end" font-family="{MONO}" font-size="26" font-weight="800" fill="{p['color']}" opacity=".55">0{i}</text>
+<text x="26" y="30" font-family="{MONO}" font-size="10.5" font-weight="700" letter-spacing="3" fill="#64748b">FEATURED PROJECT</text>
+<text x="26" y="58" font-family="{SANS}" font-size="21" font-weight="800" fill="url(#aur)">{esc(p["name"])}</text>
 {desc}{tg}
-<circle cx="32" cy="156" r="5" fill="{p['color']}"/><text x="44" y="160" font-family="{SANS}" font-size="12.5" fill="#cbd5e1">{esc(p["lang"])}</text>
-<text x="{W-26}" y="160" text-anchor="end" font-family="{MONO}" font-size="11.5" font-weight="700" letter-spacing="1" fill="{C3}">VIEW PROJECT →</text>'''
+<rect x="26" y="170" width="{W-52}" height="1" fill="#1e293b"/>
+<circle cx="32" cy="193" r="5" fill="{p['color']}"/><text x="44" y="197" font-family="{SANS}" font-size="12.5" fill="#cbd5e1">{esc(p["lang"])}</text>
+<g transform="translate({W-26-150} 180)"><rect width="150" height="26" rx="13" fill="url(#aur)"/><text x="75" y="17.5" text-anchor="middle" font-family="{MONO}" font-size="11" font-weight="800" letter-spacing="1.5" fill="#0a0c14">VIEW PROJECT ↗</text></g>'''
         save(f"project{i}.svg", W, H, body)
 
 def about(c):
