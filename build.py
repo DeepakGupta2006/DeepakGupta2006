@@ -10,7 +10,7 @@ CONFIG = {
     "pill": "BUILD · SHIP · REPEAT",
     "site_label": "deepakgupta.vercel.app",
     "site_url": "https://deepak-portfolio-deepak-gupta-s-project.vercel.app/",
-    "bio": "I turn messy data and half-formed ideas into products that work, from React front-ends to ML pipelines.",
+    "bio": "Passionate about Full Stack Development, Java, and Artificial Intelligence.",
     "motto": "Build simple. Make it work. Then scale.",
     "photo": "photo.jpg",
     "chips": ["Developer", "Full-Stack", "Open Source", "Always Learning"],
