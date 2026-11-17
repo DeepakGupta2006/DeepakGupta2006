@@ -1,16 +1,12 @@
 <div align="center">
 
-<a href="https://deepakgupta.vercel.app"><img src="assets/banner.svg" width="100%" alt="Deepak R Gupta"/></a>
+<a href="https://deepak-portfolio-deepak-gupta-s-project.vercel.app/"><img src="assets/banner.svg" width="100%" alt="Deepak R Gupta"/></a>
 
 <img src="assets/divider.svg" width="100%" alt=""/>
 
 <img src="assets/h1.svg" width="100%" alt="About Me"/>
 
-I turn messy data and half-formed ideas into products that work, from React front-ends to ML pipelines.
-
-<img src="assets/chips.svg" width="100%" alt="tags"/>
-
-<em>Build simple. Make it work. Then scale.</em>
+<img src="assets/about.svg" width="100%" alt="About Deepak R Gupta"/>
 
 <img src="assets/divider.svg" width="100%" alt=""/>
 

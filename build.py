@@ -9,9 +9,10 @@ CONFIG = {
     "role": "AI/ML  ·  FULL STACK  ·  DSA",
     "pill": "BUILD · SHIP · REPEAT",
     "site_label": "deepakgupta.vercel.app",
-    "site_url": "https://deepakgupta.vercel.app",
+    "site_url": "https://deepak-portfolio-deepak-gupta-s-project.vercel.app/",
     "bio": "I turn messy data and half-formed ideas into products that work, from React front-ends to ML pipelines.",
     "motto": "Build simple. Make it work. Then scale.",
+    "photo": "photo.jpg",
     "chips": ["Developer", "Full-Stack", "Open Source", "Always Learning"],
     "quote": ("Software is eating the world.", "MARC ANDREESSEN"),
     "stack": {
@@ -176,6 +177,51 @@ def cards(c):
 <text x="{W-26}" y="160" text-anchor="end" font-family="{MONO}" font-size="11.5" font-weight="700" letter-spacing="1" fill="{C3}">VIEW PROJECT →</text>'''
         save(f"project{i}.svg", W, H, body)
 
+def about(c):
+    import base64
+    W, H = 1000, 380
+    photo = pathlib.Path(__file__).parent / c.get("photo", "photo.jpg")
+    px, py, pw, ph = 676, 24, 268, 335
+    lines = textwrap.wrap(c["bio"], 56)
+    chips_h = 34 + 22 * ((sum(len(t)*8.4+34+12 for t in c["chips"]) > 560))
+    total = len(lines)*28 + 28 + 34 + 44
+    y0 = py + (ph - total)/2 + 18
+    t = ""
+    for i, l in enumerate(lines):
+        t += f'<text x="48" y="{y0+i*28:.0f}" font-family="{SANS}" font-size="17.5" fill="#cbd5e1">{esc(l)}</text>'
+    cy = y0 + len(lines)*28 + 6
+    x = 48; row = 0
+    for i, tx in enumerate(c["chips"]):
+        w = len(tx)*8.4 + 34
+        if x + w > 620: x = 48; row += 1
+        t += f'''<g transform="translate({x:.0f} {cy+row*44:.0f})"><rect width="{w:.0f}" height="34" rx="17" fill="#111827" fill-opacity=".85" stroke="url(#aur)" stroke-width="1.3"/><circle cx="16" cy="17" r="3" fill="{[C1,C2,C3][i%3]}"><animate attributeName="opacity" values="1;.3;1" dur="2.4s" begin="{i*.4}s" repeatCount="indefinite"/></circle><text x="{w/2+6:.0f}" y="21.5" text-anchor="middle" font-family="{MONO}" font-size="12.5" fill="#e2e8f0">{esc(tx)}</text></g>'''
+        x += w + 12
+    my = cy + (row+1)*44 + 24
+    t += f'<text x="48" y="{my:.0f}" font-family="Georgia,\'Times New Roman\',serif" font-style="italic" font-size="19" fill="#e2e8f0">{esc(c["motto"])}</text>'
+    t += f'<rect x="48" y="{my+14:.0f}" width="70" height="3" rx="1.5" fill="url(#aur)"/>'
+    img = ""
+    if photo.exists():
+        b64 = base64.b64encode(photo.read_bytes()).decode()
+        img = f'<image href="data:image/jpeg;base64,{b64}" x="{px}" y="{py}" width="{pw}" height="{ph}" preserveAspectRatio="xMidYMin slice" clip-path="url(#pc)"/>'
+    cx, cyb = px, py
+    br = f'''<g fill="none" stroke="url(#aur)" stroke-width="3" stroke-linecap="round" filter="url(#glow)">
+<path d="M{cx-12} {cyb+30}V{cyb-6}H{cx+24}"/><path d="M{cx+pw+12} {cyb+30}V{cyb-6}H{cx+pw-24}"/>
+<path d="M{cx-12} {cyb+ph-30}V{cyb+ph+6}H{cx+24}"/><path d="M{cx+pw+12} {cyb+ph-30}V{cyb+ph+6}H{cx+pw-24}"/></g>'''
+    body = f'''<defs>{GRAD}<clipPath id="pc"><rect x="{px}" y="{py}" width="{pw}" height="{ph}" rx="16"/></clipPath>
+<radialGradient id="aura" cx=".5" cy=".5" r=".5"><stop offset="0" stop-color="{C2}" stop-opacity=".40"/><stop offset=".6" stop-color="#d4a62a" stop-opacity=".12"/><stop offset="1" stop-color="{C2}" stop-opacity="0"/></radialGradient>
+<linearGradient id="scan" gradientUnits="userSpaceOnUse" x1="0" x2="0" y1="{py}" y2="{py+60}"><stop offset="0" stop-color="#fff" stop-opacity="0"/><stop offset=".5" stop-color="{C1}" stop-opacity=".28"/><stop offset="1" stop-color="#fff" stop-opacity="0"/><animateTransform attributeName="gradientTransform" type="translate" from="0 -60" to="0 {ph}" dur="4.5s" repeatCount="indefinite"/></linearGradient>
+<linearGradient id="fadeb" x1="0" y1="0" x2="0" y2="1"><stop offset=".65" stop-color="#05080f" stop-opacity="0"/><stop offset="1" stop-color="#05080f" stop-opacity=".85"/></linearGradient>
+<linearGradient id="pb" gradientUnits="userSpaceOnUse" x1="-268" x2="0" y1="0" y2="0" spreadMethod="repeat"><stop offset="0" stop-color="{C1}"/><stop offset=".5" stop-color="{C2}"/><stop offset="1" stop-color="{C3}"/><animateTransform attributeName="gradientTransform" type="translate" from="0 0" to="268 0" dur="5s" repeatCount="indefinite"/></linearGradient></defs>
+<ellipse cx="{px+pw/2}" cy="{py+ph/2}" rx="230" ry="250" fill="url(#aura)"/>
+{t}
+<rect x="{px}" y="{py}" width="{pw}" height="{ph}" rx="16" fill="#0b1020"/>
+{img}
+<g clip-path="url(#pc)"><rect x="{px}" y="{py}" width="{pw}" height="{ph}" fill="url(#fadeb)"/><rect x="{px}" y="{py}" width="{pw}" height="{ph}" fill="url(#scan)"/></g>
+<rect x="{px+1}" y="{py+1}" width="{pw-2}" height="{ph-2}" rx="15" fill="none" stroke="url(#pb)" stroke-width="2"/>
+{br}
+<g transform="translate({px+pw/2} {py+ph-24})"><rect x="-96" y="-14" width="192" height="28" rx="14" fill="#0a0c14" fill-opacity=".78" stroke="url(#aur)" stroke-width="1"/><circle cx="-78" r="3.2" fill="{C1}"><animate attributeName="opacity" values="1;.2;1" dur="1.6s" repeatCount="indefinite"/></circle><text x="6" y="4" text-anchor="middle" font-family="{MONO}" font-size="11" font-weight="700" letter-spacing="2" fill="#e2e8f0">{esc(c["name"].upper())}</text></g>'''
+    save("about.svg", W, H, body)
+
 def quote(c):
     q, a = c["quote"]; W, H = 1000, 120
     body = f'''<defs>{GRAD}</defs><text x="500" y="56" text-anchor="middle" font-family="Georgia,'Times New Roman',serif" font-style="italic" font-size="26" fill="#e2e8f0">“{esc(q)}”</text>
@@ -198,11 +244,7 @@ def readme(c):
 
 <img src="assets/h1.svg" width="100%" alt="About Me"/>
 
-{c["bio"]}
-
-<img src="assets/chips.svg" width="100%" alt="tags"/>
-
-<em>{c["motto"]}</em>
+<img src="assets/about.svg" width="100%" alt="About {c["name"]}"/>
 
 <img src="assets/divider.svg" width="100%" alt=""/>
 
@@ -241,6 +283,6 @@ def readme(c):
 
 if __name__ == "__main__":
     c = CONFIG
-    banner(c); banner(c, footer=True); divider(); chips(c); stack(c); cards(c); quote(c)
+    banner(c); banner(c, footer=True); divider(); chips(c); about(c); stack(c); cards(c); quote(c)
     for i, s in enumerate(c["sections"], 1): header(s, i)
     readme(c); print("built:", sorted(p.name for p in OUT.iterdir()))
