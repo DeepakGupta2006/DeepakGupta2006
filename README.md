@@ -22,11 +22,12 @@ I turn messy data and half-formed ideas into products that work, from React fron
 
 <img src="assets/h3.svg" width="100%" alt="Featured Projects"/>
 
-<a href="https://github.com/your-github-username"><img src="assets/project1.svg" width="49%" alt="ai-code-review-tool"/></a>
+<a href="https://github.com/your-github-username"><img src="assets/project1.svg" width="49%" alt="ai-code-review-tool"/></a> 
 <a href="https://github.com/your-github-username"><img src="assets/project2.svg" width="49%" alt="land-cover-unet"/></a>
 
-<a href="https://github.com/your-github-username"><img src="assets/project3.svg" width="49%" alt="time-capsule"/></a>
+<a href="https://github.com/your-github-username"><img src="assets/project3.svg" width="49%" alt="time-capsule"/></a> 
 <a href="https://github.com/your-github-username"><img src="assets/project4.svg" width="49%" alt="your-next-idea"/></a>
+
 
 <img src="assets/divider.svg" width="100%" alt=""/>
 
