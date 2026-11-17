@@ -4,15 +4,15 @@ import random, textwrap, pathlib
 from xml.sax.saxutils import escape as esc
 
 CONFIG = {
-    "name": "YOUR NAME",
-    "username": "your-github-username",
-    "role": "AI ENGINEER  ·  FULL STACK  ·  ML",
+    "name": "Deepak R Gupta",
+    "username": "DeepakGupta2006",
+    "role": "AI/ML  ·  FULL STACK  ·  DSA",
     "pill": "BUILD · SHIP · REPEAT",
-    "site_label": "yoursite.dev",
-    "site_url": "https://yoursite.dev",
+    "site_label": "deepakgupta.vercel.app",
+    "site_url": "https://deepakgupta.vercel.app",
     "bio": "I turn messy data and half-formed ideas into products that work, from React front-ends to ML pipelines.",
     "motto": "Build simple. Make it work. Then scale.",
-    "chips": ["he/him", "B.E. AI & DS", "Full-Stack", "Machine Learning"],
+    "chips": ["Developer", "Full-Stack", "Open Source", "Always Learning"],
     "quote": ("Software is eating the world.", "MARC ANDREESSEN"),
     "stack": {
         "Languages": ["Python", "JavaScript", "TypeScript", "C++", "SQL"],
@@ -22,13 +22,13 @@ CONFIG = {
     },
     "projects": [
         {"name": "ai-code-review-tool", "desc": "Paste code, get instant AI review feedback powered by an LLM API.",
-         "tags": ["React", "Node.js", "Groq"], "lang": "JavaScript", "color": "#facc15", "url": "https://github.com/your-github-username"},
+         "tags": ["React", "Node.js", "Groq"], "lang": "JavaScript", "color": "#facc15", "url": "https://github.com/DeepakGupta2006"},
         {"name": "land-cover-unet", "desc": "Land-use classification on satellite imagery using a U-Net model.",
-         "tags": ["Python", "U-Net", "Remote Sensing"], "lang": "Python", "color": "#38bdf8", "url": "https://github.com/your-github-username"},
+         "tags": ["Python", "U-Net", "Remote Sensing"], "lang": "Python", "color": "#38bdf8", "url": "https://github.com/DeepakGupta2006"},
         {"name": "time-capsule", "desc": "Write messages to your future self and unlock them on a chosen date.",
-         "tags": ["Next.js", "MongoDB"], "lang": "TypeScript", "color": "#818cf8", "url": "https://github.com/your-github-username"},
+         "tags": ["Next.js", "MongoDB"], "lang": "TypeScript", "color": "#818cf8", "url": "https://github.com/DeepakGupta2006"},
         {"name": "your-next-idea", "desc": "A placeholder for the project you're about to ship. Edit me in build.py.",
-         "tags": ["Idea", "Soon"], "lang": "Python", "color": "#e879f9", "url": "https://github.com/your-github-username"},
+         "tags": ["Idea", "Soon"], "lang": "Python", "color": "#e879f9", "url": "https://github.com/DeepakGupta2006"},
     ],
     "sections": ["About Me", "Tech Stack", "Featured Projects", "GitHub Stats", "Contribution Snake"],
 }
@@ -71,9 +71,9 @@ def banner(c, footer=False):
         for x in range(-700, 1701, 110):
             grid += f'<line x1="500" y1="{hz}" x2="{x}" y2="{H}"/>'
     blobs = f'''
-<circle r="140" fill="{C1}" opacity=".34" filter="url(#blur)"><animate attributeName="cx" values="180;360;180" dur="14s" repeatCount="indefinite"/><animate attributeName="cy" values="90;200;90" dur="11s" repeatCount="indefinite"/></circle>
-<circle r="150" fill="{C2}" opacity=".38" filter="url(#blur)"><animate attributeName="cx" values="520;640;520" dur="16s" repeatCount="indefinite"/><animate attributeName="cy" values="60;{H-40};60" dur="13s" repeatCount="indefinite"/></circle>
-<circle r="130" fill="{C3}" opacity=".30" filter="url(#blur)"><animate attributeName="cx" values="860;700;860" dur="15s" repeatCount="indefinite"/><animate attributeName="cy" values="220;80;220" dur="12s" repeatCount="indefinite"/></circle>'''
+<circle r="140" fill="#1f8a58" opacity=".60" filter="url(#blur)"><animate attributeName="cx" values="180;360;180" dur="14s" repeatCount="indefinite"/><animate attributeName="cy" values="90;200;90" dur="11s" repeatCount="indefinite"/></circle>
+<circle r="150" fill="#d4a62a" opacity=".42" filter="url(#blur)"><animate attributeName="cx" values="520;640;520" dur="16s" repeatCount="indefinite"/><animate attributeName="cy" values="60;{H-40};60" dur="13s" repeatCount="indefinite"/></circle>
+<circle r="130" fill="#8a7a1e" opacity=".50" filter="url(#blur)"><animate attributeName="cx" values="860;700;860" dur="15s" repeatCount="indefinite"/><animate attributeName="cy" values="220;80;220" dur="12s" repeatCount="indefinite"/></circle>'''
     corners = f'''<g fill="none" stroke="url(#aur)" stroke-width="2.5" stroke-linecap="round" filter="url(#glow)">
 <path d="M26 56V28a2 2 0 0 1 2-2h28"/><path d="M974 56V28a2 2 0 0 0-2-2h-28"/>
 <path d="M26 {H-56}v28a2 2 0 0 0 2 2h28"/><path d="M974 {H-56}v28a2 2 0 0 1-2 2h-28"/></g>'''
@@ -81,7 +81,7 @@ def banner(c, footer=False):
         body = f'''<defs>{GRAD}<filter id="blur" filterUnits="userSpaceOnUse" x="-400" y="-400" width="1800" height="1000"><feGaussianBlur stdDeviation="45"/></filter>
 <clipPath id="c"><rect width="{W}" height="{H}" rx="22"/></clipPath>
 <linearGradient id="nm" gradientUnits="userSpaceOnUse" x1="0" x2="500" y1="0" y2="0" spreadMethod="repeat"><stop offset="0" stop-color="#e0f2fe"/><stop offset=".33" stop-color="{C1}"/><stop offset=".66" stop-color="{C2}"/><stop offset="1" stop-color="#e0f2fe"/><animateTransform attributeName="gradientTransform" type="translate" from="0 0" to="500 0" dur="7s" repeatCount="indefinite"/></linearGradient></defs>
-<g clip-path="url(#c)"><rect width="{W}" height="{H}" fill="{BG}"/>{blobs}{stars(30,W,H,7)}</g>
+<g clip-path="url(#c)"><rect width="{W}" height="{H}" fill="#07120d"/>{blobs}{stars(30,W,H,7)}</g>
 <rect x="1.5" y="1.5" width="{W-3}" height="{H-3}" rx="21" fill="none" stroke="url(#aur)" stroke-opacity=".55" stroke-width="1.5"/>
 {corners}
 <text x="500" y="68" text-anchor="middle" font-family="{MONO}" font-size="20" font-weight="700" letter-spacing="10" fill="url(#nm)">THANKS FOR VISITING</text>
@@ -93,8 +93,8 @@ def banner(c, footer=False):
 <mask id="gmask"><rect y="{hz}" width="{W}" height="105" fill="url(#gm)"/></mask>
 <linearGradient id="nm" gradientUnits="userSpaceOnUse" x1="0" x2="500" y1="0" y2="0" spreadMethod="repeat"><stop offset="0" stop-color="#e0f2fe"/><stop offset=".33" stop-color="{C1}"/><stop offset=".66" stop-color="{C2}"/><stop offset="1" stop-color="#e0f2fe"/><animateTransform attributeName="gradientTransform" type="translate" from="0 0" to="500 0" dur="7s" repeatCount="indefinite"/></linearGradient>
 <linearGradient id="sweep" gradientUnits="userSpaceOnUse" x1="-300" x2="-100" y1="0" y2="0"><stop offset="0" stop-color="#fff" stop-opacity="0"/><stop offset=".5" stop-color="#fff" stop-opacity=".10"/><stop offset="1" stop-color="#fff" stop-opacity="0"/><animateTransform attributeName="gradientTransform" type="translate" from="0 0" to="1400 0" dur="6s" repeatCount="indefinite"/></linearGradient></defs>
-<g clip-path="url(#c)"><rect width="{W}" height="{H}" fill="{BG}"/>{blobs}
-<g mask="url(#gmask)" stroke="{C1}" stroke-opacity=".35" stroke-width="1">{grid}</g>
+<g clip-path="url(#c)"><rect width="{W}" height="{H}" fill="#07120d"/>{blobs}
+<g mask="url(#gmask)" stroke="#e0b94a" stroke-opacity=".45" stroke-width="1">{grid}</g><circle cx="500" cy="150" r="125" fill="none" stroke="#e0b94a" stroke-opacity=".14" stroke-dasharray="2 6"/><circle cx="500" cy="150" r="170" fill="none" stroke="#e0b94a" stroke-opacity=".07"/>
 {stars(46,W,H,11,hz)}<rect width="{W}" height="{H}" fill="url(#sweep)" transform="skewX(-18)"/></g>
 <rect x="1.5" y="1.5" width="{W-3}" height="{H-3}" rx="21" fill="none" stroke="url(#aur)" stroke-opacity=".6" stroke-width="1.5"/>
 {corners}
@@ -103,10 +103,10 @@ def banner(c, footer=False):
 <text x="10" y="4.5" text-anchor="middle" font-family="{MONO}" font-size="12.5" font-weight="700" letter-spacing="3" fill="#e2e8f0">{esc(c["pill"])}</text></g>
 <text x="500" y="{148}" text-anchor="middle" font-family="{SANS}" font-size="{size}" font-weight="800" letter-spacing="7" fill="url(#nm)" filter="url(#glow)">{esc(name)}</text>
 <text x="500" y="188" text-anchor="middle" font-family="{SANS}" font-size="15" letter-spacing="5" fill="#cbd5e1">{esc(c["role"])}</text>
-<g transform="translate(500 244)"><rect x="-120" y="-19" width="240" height="38" rx="19" fill="#0f172a" fill-opacity=".8" stroke="url(#aur)" stroke-width="1.3"/>
-<path d="M-4-19H101a19 19 0 0 1 0 38H-4z" fill="url(#aur)"/>
-<text x="-62" y="4.5" text-anchor="middle" font-family="{MONO}" font-size="11.5" font-weight="700" letter-spacing="2" fill="#e2e8f0">PORTFOLIO</text>
-<text x="48" y="4.5" text-anchor="middle" font-family="{MONO}" font-size="12" font-weight="800" fill="#0a0c14">{esc(c["site_label"])}</text></g>'''
+<g transform="translate(500 244)"><rect x="-160" y="-19" width="320" height="38" rx="19" fill="#0f172a" fill-opacity=".8" stroke="url(#aur)" stroke-width="1.3"/>
+<path d="M-34-19H141a19 19 0 0 1 0 38H-34z" fill="url(#aur)"/>
+<text x="-97" y="4.5" text-anchor="middle" font-family="{MONO}" font-size="11.5" font-weight="700" letter-spacing="2" fill="#e2e8f0">PORTFOLIO</text>
+<text x="53" y="4.5" text-anchor="middle" font-family="{MONO}" font-size="12" font-weight="800" fill="#0a0c14">{esc(c["site_label"])}</text></g>'''
     save("banner.svg", W, H, body)
 
 # ---------------- headers & divider ----------------
@@ -192,7 +192,7 @@ def readme(c):
     proj = "\n".join(P(i) + ("\n" if i % 2 else " ") for i in range(n))
     md = f'''<div align="center">
 
-<img src="assets/banner.svg" width="100%" alt="{c["name"]}"/>
+<a href="{c["site_url"]}"><img src="assets/banner.svg" width="100%" alt="{c["name"]}"/></a>
 
 <img src="assets/divider.svg" width="100%" alt=""/>
 
