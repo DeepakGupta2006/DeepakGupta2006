@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="84" viewBox="0 0 1000 84"><defs><linearGradient id="aur" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#22d3ee"/><stop offset=".5" stop-color="#818cf8"/><stop offset="1" stop-color="#e879f9"/></linearGradient>
+<linearGradient id="fade" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#818cf8" stop-opacity="0"/><stop offset=".5" stop-color="#22d3ee"/><stop offset="1" stop-color="#e879f9" stop-opacity="0"/></linearGradient>
+<filter id="glow" x="-30%" y="-30%" width="160%" height="160%"><feGaussianBlur stdDeviation="3" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter><linearGradient id="lf" x1="0" x2="1"><stop offset="0" stop-color="#22d3ee" stop-opacity="0"/><stop offset="1" stop-color="#818cf8"/></linearGradient>
+<linearGradient id="rf" x1="0" x2="1"><stop offset="0" stop-color="#e879f9"/><stop offset="1" stop-color="#818cf8" stop-opacity="0"/></linearGradient>
+<radialGradient id="halo"><stop offset="0" stop-color="#818cf8" stop-opacity=".30"/><stop offset="1" stop-color="#818cf8" stop-opacity="0"/></radialGradient></defs>
+<ellipse cx="500" cy="42" rx="235" ry="34" fill="url(#halo)"/>
+<rect x="121" y="41" width="250" height="2" fill="url(#lf)" rx="1"/><rect x="629" y="41" width="250" height="2" fill="url(#rf)" rx="1"/>
+<circle cy="42" r="3.5" fill="#fff" filter="url(#glow)"><animate attributeName="cx" values="121;371;121" dur="3.2s" repeatCount="indefinite"/><animate attributeName="opacity" values="0;1;0" dur="3.2s" repeatCount="indefinite"/></circle>
+<circle cy="42" r="3.5" fill="#fff" filter="url(#glow)"><animate attributeName="cx" values="879;629;879" dur="3.2s" repeatCount="indefinite"/><animate attributeName="opacity" values="0;1;0" dur="3.2s" repeatCount="indefinite"/></circle>
+<text x="500" y="52" text-anchor="middle" font-family="'Segoe UI','Helvetica Neue',Arial,sans-serif" font-size="30" font-weight="800" letter-spacing="1.5" fill="url(#aur)">GitHub Stats</text>
+<rect x="470" y="66" width="60" height="3" rx="1.5" fill="url(#aur)"><animate attributeName="width" values="20;60;20" dur="3s" repeatCount="indefinite"/><animate attributeName="x" values="490;470;490" dur="3s" repeatCount="indefinite"/></rect>
+<text x="109" y="46" text-anchor="end" font-family="'JetBrains Mono','Fira Code',Consolas,'Courier New',monospace" font-size="11" fill="#64748b" letter-spacing="2">04</text></svg>

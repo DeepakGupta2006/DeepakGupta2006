@@ -1,278 +1,50 @@
-<!-- ===================== PROFILE BANNER ===================== -->
-
 <div align="center">
-  <img
-    src="./assets/deepak-banner.png"
-    alt="Deepak Gupta | Full Stack Developer | AI/ML | Cloud"
-    width="100%"
-  />
+
+<img src="assets/banner.svg" width="100%" alt="YOUR NAME"/>
+
+<img src="assets/divider.svg" width="100%" alt=""/>
+
+<img src="assets/h1.svg" width="100%" alt="About Me"/>
+
+I turn messy data and half-formed ideas into products that work, from React front-ends to ML pipelines.
+
+<img src="assets/chips.svg" width="100%" alt="tags"/>
+
+<em>Build simple. Make it work. Then scale.</em>
+
+<img src="assets/divider.svg" width="100%" alt=""/>
+
+<img src="assets/h2.svg" width="100%" alt="Tech Stack"/>
+
+<img src="assets/stack.svg" width="100%" alt="Tech stack"/>
+
+<img src="assets/divider.svg" width="100%" alt=""/>
+
+<img src="assets/h3.svg" width="100%" alt="Featured Projects"/>
+
+<a href="https://github.com/your-github-username"><img src="assets/project1.svg" width="49%" alt="ai-code-review-tool"/></a>
+<a href="https://github.com/your-github-username"><img src="assets/project2.svg" width="49%" alt="land-cover-unet"/></a>
+
+<a href="https://github.com/your-github-username"><img src="assets/project3.svg" width="49%" alt="time-capsule"/></a>
+<a href="https://github.com/your-github-username"><img src="assets/project4.svg" width="49%" alt="your-next-idea"/></a>
+
+<img src="assets/divider.svg" width="100%" alt=""/>
+
+<img src="assets/h4.svg" width="100%" alt="GitHub Stats"/>
+
+<img height="170" src="https://github-readme-stats.vercel.app/api?username=your-github-username&show_icons=true&hide_border=true&bg_color=0a0c14&title_color=22d3ee&icon_color=e879f9&text_color=cbd5e1&ring_color=818cf8" alt="stats"/>
+<img height="170" src="https://github-readme-stats.vercel.app/api/top-langs/?username=your-github-username&layout=compact&hide_border=true&bg_color=0a0c14&title_color=22d3ee&text_color=cbd5e1" alt="languages"/>
+
+<img src="https://streak-stats.demolab.com?user=your-github-username&theme=dark&hide_border=true&background=0a0c14&ring=818cf8&fire=e879f9&currStreakNum=22d3ee&sideNums=c7d2fe&currStreakLabel=818cf8&sideLabels=94a3b8&dates=64748b" width="97%" alt="streak"/>
+
+<img src="assets/divider.svg" width="100%" alt=""/>
+
+<img src="assets/h5.svg" width="100%" alt="Contribution Snake"/>
+
+<img src="https://raw.githubusercontent.com/your-github-username/your-github-username/output/github-snake-dark.svg" width="100%" alt="snake"/>
+
+<img src="assets/quote.svg" width="100%" alt="quote"/>
+
+<img src="assets/footer.svg" width="100%" alt="Thanks for visiting"/>
+
 </div>
-
-<br/>
-
-<!-- ===================== INTRODUCTION ===================== -->
-
-<h3 align="center">
-  Full-Stack Developer | AI/ML Enthusiast | BCA Computer Science Student
-</h3>
-
-<p align="center">
-  Building scalable web applications and intelligent AI solutions.
-</p>
-<p align="center">
-
-  <!-- LinkedIn -->
-  <a href="https://www.linkedin.com/in/deepak-gupta-821945296/" target="_blank">
-    <img src="https://img.shields.io/badge/LinkedIn-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white" alt="LinkedIn"/>
-  </a>
-
-  <!-- Portfolio -->
-  <a href="https://deepak-portfolio-deepak-gupta-s-project.vercel.app" target="_blank">
-    <img src="https://img.shields.io/badge/Portfolio-00C7B7?style=for-the-badge&logo=vercel&logoColor=white" alt="Portfolio"/>
-  </a>
-
-  <!-- Email -->
-  <a href="mailto:dg7842661@gmail.com">
-    <img src="https://img.shields.io/badge/Email-D14836?style=for-the-badge&logo=gmail&logoColor=white" alt="Email"/>
-  </a>
-
-  <!-- WhatsApp -->
-  <a href="https://wa.me/8806627054" target="_blank">
-    <img src="https://img.shields.io/badge/WhatsApp-25D366?style=for-the-badge&logo=whatsapp&logoColor=white" alt="WhatsApp"/>
-  </a>
-
-</p>
-
----
-
-<!-- ===================== ABOUT ME ===================== -->
-
-## 👨‍💻 About Me
-
-- 🎓 Pursuing BCA in Computer Science.
-- 💻 Interested in Full-Stack Web Development.
-- 🤖 Building AI assistants using Python and local AI models.
-- 🌱 Practicing Data Structures and Algorithms.
-- 🚀 Learning to build scalable, real-world applications.
-- 🎯 Goal: Become a skilled software developer and AI engineer.
-
----
-
-<!-- ===================== TECH STACK ===================== -->
-
-## 🛠️ Technologies & Tools
-
-### 💻 Programming Languages
-
-<p>
-  <img src="https://skillicons.dev/icons?i=java,python,js" alt="Java, Python, JavaScript"/>
-</p>
-
-### 🌐 Frontend Development
-
-<p>
-  <img src="https://skillicons.dev/icons?i=html,css,react" alt="HTML, CSS, React"/>
-</p>
-
-### ⚙️ Backend Development
-
-<p>
-  <img src="https://skillicons.dev/icons?i=nodejs,express" alt="Node.js, Express"/>
-</p>
-
-### 🗄️ Databases
-
-<p>
-  <img src="https://skillicons.dev/icons?i=mongodb,mysql" alt="MongoDB, MySQL"/>
-</p>
-
-### 🔧 Tools & Platforms
-
-<p>
-  <img src="https://skillicons.dev/icons?i=git,github,vscode,docker" alt="Git, GitHub, VS Code, Docker"/>
-</p>
-
----
-
-<!-- ======================================= -->
-
-<!--       FEATURED PROJECTS SECTION          -->
-
-<!-- ======================================= -->
-
-<h2 align="center">🚀 Featured Projects</h2>
-
-<p align="center">
-  Here are some of my featured projects showcasing my skills in
-  <b>Full Stack Development, MERN Stack, Artificial Intelligence, and Machine Learning.</b>
-</p>
-
----
-
-<!-- PROJECT 1: FOOD DELIVERY APP -->
-
-<h3>🍔 1. Food Delivery App</h3>
-
-<p>
-  A full-stack food delivery application designed to simplify online food ordering.
-  Users can explore food items, browse restaurants, manage their cart, and place orders
-  through an intuitive and responsive interface.
-</p>
-**🛠️ Tech Stack:**
-
-<p>
-  <img src="https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB" />
-  <img src="https://img.shields.io/badge/Node.js-43853D?style=for-the-badge&logo=node.js&logoColor=white" />
-  <img src="https://img.shields.io/badge/Express.js-000000?style=for-the-badge&logo=express&logoColor=white" />
-  <img src="https://img.shields.io/badge/MongoDB-4EA94B?style=for-the-badge&logo=mongodb&logoColor=white" />
-</p>
-
-**✨ Key Features**
-
-- 🍕 Browse food items and restaurant menus.
-- 🛒 Add, remove, and update cart items.
-- 👤 User registration and login.
-- 📦 Order placement and order management.
-- 📱 Responsive interface for desktop and mobile.
-- 🔐 Backend API integration and database management.
-
----
-
-<!-- PROJECT 2: NEXTCART E-COMMERCE PLATFORM -->
-
-<h3>🛒 2. NextCart — E-Commerce Platform</h3>
-
-<p>
-  A modern e-commerce platform built to provide a seamless online shopping experience.
-  Customers can explore products, view product details, add items to their cart,
-  and manage their shopping experience through a user-friendly interface.
-</p>
-**🛠️ Tech Stack:**
-
-<p>
-  <img src="https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB" />
-  <img src="https://img.shields.io/badge/Node.js-43853D?style=for-the-badge&logo=node.js&logoColor=white" />
-  <img src="https://img.shields.io/badge/Express.js-000000?style=for-the-badge&logo=express&logoColor=white" />
-  <img src="https://img.shields.io/badge/MongoDB-4EA94B?style=for-the-badge&logo=mongodb&logoColor=white" />
-</p>
-
-**✨ Key Features**
-
-- 🛍️ Product browsing and product detail pages.
-- 🔍 Product search and category filtering.
-- 🛒 Shopping cart and quantity management.
-- 👤 User authentication and account management.
-- 📦 Order management and checkout workflow.
-- 📱 Responsive design for multiple screen sizes.
-
-\*\*
-
----
-
-<!-- PROJECT 3: FAKE NEWS DETECTOR -->
-
-<h3>📰 3. Fake News Detector — AI/ML Project</h3>
-
-<p>
-  An AI/ML-based application designed to analyze news text and predict whether
-  an article is likely to be real or fake using a trained machine learning model
-  and natural language processing techniques.
-</p>
-**🛠️ Tech Stack:**
-
-<p>
-  <img src="https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white" />
-  <img src="https://img.shields.io/badge/Machine_Learning-FF6F00?style=for-the-badge&logo=googlecolab&logoColor=white" />
-  <img src="https://img.shields.io/badge/NLP-6A1B9A?style=for-the-badge&logo=databricks&logoColor=white" />
-  <img src="https://img.shields.io/badge/Scikit--learn-F7931E?style=for-the-badge&logo=scikitlearn&logoColor=white" />
-</p>
-
-**✨ Key Features**
-
-- 📝 Accepts news text for analysis.
-- 🤖 Uses a trained machine learning classification model.
-- 🔤 Processes textual data using NLP techniques.
-- 📊 Predicts whether news is likely to be real or fake.
-- ⚡ Provides predictions through a simple user interface.
-- 🧠 Demonstrates text classification and model integration.
-
----
-
-<!-- PROJECT 4: FRIDAY AI VOICE ASSISTANT -->
-
-<h3>🎙️ 4. Friday — AI Voice Assistant</h3>
-
-<p>
-  A Python-based AI voice assistant that combines speech recognition, local language
-  model integration, and voice output to provide an interactive conversational experience.
-  Built to explore the development of intelligent assistants and AI-powered automation.
-</p>
-**🛠️ Tech Stack:**
-
-<p>
-  <img src="https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white" />
-  <img src="https://img.shields.io/badge/Ollama-000000?style=for-the-badge&logo=ollama&logoColor=white" />
-  <img src="https://img.shields.io/badge/Flask-000000?style=for-the-badge&logo=flask&logoColor=white" />
-  <img src="https://img.shields.io/badge/AI-8E44AD?style=for-the-badge&logo=openai&logoColor=white" />
-</p>
-
-**✨ Key Features**
-
-- 🎤 Voice input using speech recognition.
-- 🧠 AI-powered conversations using locally hosted Ollama models.
-- 🔊 Text-to-speech for spoken responses.
-- 💬 Text-based chat functionality.
-- ⚙️ Python-based assistant architecture.
-- 💻 System monitoring and process information using `psutil`.
-
----
-
-<h3 align="center">💡 What I'm Exploring</h3>
-
-<p align="center">
-  Full Stack Web Development • MERN Stack • Java & DSA
-  <br/>
-  Artificial Intelligence • Machine Learning • AI Agents
-</p>
-
-<p align="center">
-  <i>Building projects, learning new technologies, and turning ideas into reality. 🚀</i>
-</p>
-
----
-
-<!-- ===================== CURRENT FOCUS ===================== -->
-
-## 🎯 What I'm Working On
-
-- 🚀 Developing full-stack web applications.
-- 🧠 Strengthening Java and DSA problem-solving skills.
-- 🌐 Exploring AI integration with web applications.
-
----
-
-<!-- ===================== CONNECT ===================== -->
-
-## 🤝 Connect With Me
-
-<p align="center">
-
-  <a href="https://github.com/DeepakGupta2006">
-    <img src="https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white" alt="GitHub"/>
-  </a>
-
-  <a href="mailto:dg7842661@gmail.com">
-    <img src="https://img.shields.io/badge/Email-D14836?style=for-the-badge&logo=gmail&logoColor=white" alt="Email"/>
-  </a>
-
-</p>
-
----
-
-<h3 align="center">
-  💡 Code Today. Build Tomorrow. Become Better. 🚀
-</h3>
-
-<p align="center">
-  Thanks for visiting my profile! ⭐
-</p>
