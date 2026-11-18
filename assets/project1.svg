@@ -4,6 +4,9 @@
 <linearGradient id="bg1" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#131a2e"/><stop offset="1" stop-color="#0c1020"/></linearGradient></defs>
 <rect x="2" y="2" width="476" height="212" rx="16" fill="url(#bg1)" stroke="url(#g1)" stroke-width="1.6"/>
 <circle cx="446" cy="34" r="54" fill="#34d399" opacity=".09"/>
+<clipPath id="lc1"><rect x="2" y="2" width="476" height="212" rx="16"/></clipPath>
+<linearGradient id="ls1" gradientUnits="userSpaceOnUse" x1="-100" x2="-10" y1="0" y2="0"><stop offset="0" stop-color="#fff" stop-opacity="0"/><stop offset=".42" stop-color="#22d3ee" stop-opacity=".30"/><stop offset=".5" stop-color="#fff" stop-opacity=".95"/><stop offset=".58" stop-color="#e879f9" stop-opacity=".30"/><stop offset="1" stop-color="#fff" stop-opacity="0"/><animateTransform attributeName="gradientTransform" type="translate" from="0 0" to="680 0" dur="4.2s" repeatCount="indefinite"/></linearGradient>
+<g clip-path="url(#lc1)"><rect width="480" height="216" fill="url(#ls1)" opacity=".6" transform="skewX(-20)"/></g>
 <text x="454" y="40" text-anchor="end" font-family="'JetBrains Mono','Fira Code',Consolas,'Courier New',monospace" font-size="26" font-weight="800" fill="#34d399" opacity=".55">01</text>
 <text x="26" y="30" font-family="'JetBrains Mono','Fira Code',Consolas,'Courier New',monospace" font-size="10.5" font-weight="700" letter-spacing="3" fill="#64748b">FEATURED PROJECT</text>
 <text x="26" y="58" font-family="'Segoe UI','Helvetica Neue',Arial,sans-serif" font-size="21" font-weight="800" fill="url(#aur)">Zero Spoof</text>

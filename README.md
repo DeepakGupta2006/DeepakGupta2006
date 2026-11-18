@@ -36,9 +36,9 @@
 
 <img src="assets/divider.svg" width="100%" alt=""/>
 
-<img src="assets/h5.svg" width="100%" alt="Contribution Snake"/>
+<img src="assets/h5.svg" width="100%" alt="Contribution Graph"/>
 
-<img src="https://raw.githubusercontent.com/DeepakGupta2006/DeepakGupta2006/output/github-snake-dark.svg" width="100%" alt="snake"/>
+<img src="assets/graph.svg" width="100%" alt="Contribution graph"/>
 
 <img src="assets/quote.svg" width="100%" alt="quote"/>
 

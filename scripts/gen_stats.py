@@ -75,6 +75,7 @@ def main():
         "followers": u["followers"]["totalCount"],
         "streak_current": cur, "streak_longest": lon, "streak_start": ls, "streak_end": le,
         "languages": [{"name": k, "pct": round(100 * v[0] / total, 1), "color": v[1]} for k, v in top[:8]],
+        "daily": [{"date": d, "count": n} for d, n in days[-31:]],
         "updated": dt.datetime.utcnow().strftime("%Y-%m-%d %H:%M UTC"),
     }
     OUT.parent.mkdir(exist_ok=True)

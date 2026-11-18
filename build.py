@@ -17,12 +17,14 @@ CONFIG = {
     "card": {"overall": 64, "pos": "RW", "name": "D GUPTA", "pac": 67, "sho": 64, "pas": 54, "dri": 75, "def": 40, "phy": 63},
     "chips": ["Developer", "Full-Stack", "Open Source", "Always Learning"],
     "quote": ("Software is eating the world.", "MARC ANDREESSEN"),
-    "stack": {
-        "Languages": ["Python", "JavaScript", "TypeScript", "C++", "SQL"],
-        "AI / ML":   ["PyTorch", "TensorFlow", "scikit-learn", "LangChain", "OpenCV"],
-        "Web":       ["React", "Node.js", "Express", "Next.js", "Tailwind"],
-        "Data & Ops":["MongoDB", "PostgreSQL", "Docker", "Git", "Linux"],
-    },
+    "stack_rows": [
+        [("C++","cplusplus"),("React","react"),("Next.js","nextdotjs"),("Tailwind","tailwindcss"),("HTML","html5"),("CSS","css3"),("JavaScript","javascript"),("TypeScript","typescript"),("Python","python"),("Node.js","nodedotjs")],
+        [("FastAPI","fastapi"),("VS Code","vscode"),("MongoDB","mongodb"),("PostgreSQL","postgresql"),("MySQL","mysql"),("Docker","docker"),("Git","git"),("GitHub","github"),("Flutter","flutter"),("Flask","flask")],
+        [("Hugging Face","huggingface"),("Firebase","firebase"),("Vercel","vercel"),("Netlify","netlify"),("Linux","linux"),("Postman","postman"),("TensorFlow","tensorflow"),("PyTorch","pytorch"),("Pandas","pandas"),("NumPy","numpy")],
+    ],
+    # Optional: type your numbers here to show them before the workflow has run. Leave None to use live data.
+    # Example: {"contributions": 120, "stars": 3, "prs": 5, "issues": 1, "repos": 9, "followers": 4}
+    "stats_manual": None,
     "projects": [
         {"name": "Zero Spoof", "desc": "Anti-spoofing system that detects fake faces, photos and replay attacks before they get access.",
          "tags": ["Python", "OpenCV", "Deep Learning"], "lang": "Python", "color": "#34d399",
@@ -37,7 +39,7 @@ CONFIG = {
          "tags": ["React", "Node.js", "Express", "MongoDB"], "lang": "JavaScript", "color": "#fb923c",
          "url": "https://github.com/DeepakGupta2006?tab=repositories"},
     ],
-    "sections": ["About Me", "Tech Stack", "Featured Projects", "GitHub Stats", "Contribution Snake"],
+    "sections": ["About Me", "Tech Stack", "Featured Projects", "GitHub Stats", "Contribution Graph"],
 }
 
 C1, C2, C3 = "#22d3ee", "#818cf8", "#e879f9"
@@ -150,17 +152,41 @@ def chips(c):
     save("chips.svg", W, H, body)
 
 def stack(c):
-    W = 1000; y = 24; body = f"<defs>{GRAD}</defs>"; cols = [C1, C2, C3, "#34d399"]; n = 0
-    for ci, (cat, items) in enumerate(c["stack"].items()):
-        col = cols[ci % 4]
-        body += f'<text x="60" y="{y+22}" font-family="{MONO}" font-size="12" font-weight="700" letter-spacing="2" fill="{col}">{esc(cat.upper())}</text>'
-        x = 230
-        for t in items:
-            w = len(t)*8.6 + 36
-            body += f'''<g transform="translate({x:.0f} {y})"><rect width="{w:.0f}" height="34" rx="10" fill="{col}" fill-opacity=".09" stroke="{col}" stroke-opacity=".55"/><circle cx="16" cy="17" r="3.2" fill="{col}"/><text x="28" y="21.5" font-family="{SANS}" font-size="13.5" font-weight="600" fill="#e2e8f0">{esc(t)}</text><animate attributeName="opacity" from="0" to="1" dur=".5s" begin="{n*.07:.2f}s" fill="freeze"/></g>'''
-            x += w + 12; n += 1
-        y += 52
-    save("stack.svg", W, y + 6, body)
+    import json
+    icons = json.loads((pathlib.Path(__file__).parent / "icons.json").read_text(encoding="utf-8"))
+    icons["vscode"] = {"path": "M17.6 2.2L21.5 4.1V19.9L17.6 21.8L7.4 12.9L4.1 15.4L2.5 14.6V9.4L4.1 8.6L7.4 11.1ZM17.6 7.9L11.4 12L17.6 16.1Z", "hex": "2f9be4"}
+    over = {"numpy": "#4dabcf", "pandas": "#c084fc"}
+    def col(key):
+        if key in over: return over[key]
+        h = icons[key]["hex"]; r, g, bl = int(h[0:2], 16), int(h[2:4], 16), int(h[4:6], 16)
+        return "#" + h if (.299*r + .587*g + .114*bl) / 255 > .32 else "#e2e8f0"
+    W, PADY, ROW_H, GAP = 1000, 30, 40, 26
+    rows = c["stack_rows"]; H = PADY*2 + len(rows)*ROW_H + (len(rows)-1)*GAP
+    out = ""
+    for r, row in enumerate(rows):
+        y = PADY + r*(ROW_H + GAP)
+        def make(off):
+            sx = ""; x = off
+            for name, key in row:
+                w = 52 + len(name)*8.3
+                rule = ' fill-rule="evenodd"' if key == "vscode" else ""
+                sx += (f'<g transform="translate({x:.1f} {y})"><rect width="{w:.1f}" height="{ROW_H}" rx="12" fill="url(#chipbg)" stroke="#2c3a58"/>'
+                       f'<g transform="translate(16 9) scale(.9167)"><path d="{icons[key]["path"]}" fill="{col(key)}"{rule}/></g>'
+                       f'<text x="46" y="25.5" font-family="{SANS}" font-size="14.5" font-weight="600" fill="#e2e8f0">{esc(name)}</text></g>')
+                x += w + 14
+            return sx, x - off
+        one, tw = make(0); two, _ = make(tw)
+        frm, to = ("0 0", f"-{tw:.1f} 0") if r % 2 == 0 else (f"-{tw:.1f} 0", "0 0")
+        out += f'<g><animateTransform attributeName="transform" type="translate" from="{frm}" to="{to}" dur="{tw/46:.1f}s" repeatCount="indefinite"/>{one}{two}</g>'
+    body = f"""<defs>{GRAD}<linearGradient id="chipbg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#121a2c"/><stop offset="1" stop-color="#0a101d"/></linearGradient>
+<linearGradient id="ef" x1="0" x2="1"><stop offset="0" stop-color="#000"/><stop offset=".07" stop-color="#fff"/><stop offset=".93" stop-color="#fff"/><stop offset="1" stop-color="#000"/></linearGradient>
+<mask id="em"><rect width="{W}" height="{H}" fill="url(#ef)"/></mask>
+<clipPath id="pc"><rect x="6" y="8" width="{W-12}" height="{H-16}" rx="16"/></clipPath>
+<radialGradient id="tg" cx=".5" cy=".5" r=".6"><stop offset="0" stop-color="{C2}" stop-opacity=".16"/><stop offset="1" stop-color="{C2}" stop-opacity="0"/></radialGradient></defs>
+<rect x="2" y="2" width="{W-4}" height="{H-4}" rx="22" fill="#0a111c" stroke="url(#aur)" stroke-width="1.6"/>
+<rect x="2" y="2" width="{W-4}" height="{H-4}" rx="22" fill="url(#tg)"/>
+<g clip-path="url(#pc)"><g mask="url(#em)">{out}</g></g>"""
+    save("stack.svg", W, H, body)
 
 def cards(c):
     for i, p in enumerate(c["projects"], 1):
@@ -177,6 +203,9 @@ def cards(c):
 <linearGradient id="bg{i}" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#131a2e"/><stop offset="1" stop-color="#0c1020"/></linearGradient></defs>
 <rect x="2" y="2" width="{W-4}" height="{H-4}" rx="16" fill="url(#bg{i})" stroke="url(#g{i})" stroke-width="1.6"/>
 <circle cx="{W-34}" cy="34" r="54" fill="{p['color']}" opacity=".09"/>
+<clipPath id="lc{i}"><rect x="2" y="2" width="{W-4}" height="{H-4}" rx="16"/></clipPath>
+<linearGradient id="ls{i}" gradientUnits="userSpaceOnUse" x1="-100" x2="-10" y1="0" y2="0"><stop offset="0" stop-color="#fff" stop-opacity="0"/><stop offset=".42" stop-color="{C1}" stop-opacity=".30"/><stop offset=".5" stop-color="#fff" stop-opacity=".95"/><stop offset=".58" stop-color="{C3}" stop-opacity=".30"/><stop offset="1" stop-color="#fff" stop-opacity="0"/><animateTransform attributeName="gradientTransform" type="translate" from="0 0" to="680 0" dur="4.2s" repeatCount="indefinite"/></linearGradient>
+<g clip-path="url(#lc{i})"><rect width="{W}" height="{H}" fill="url(#ls{i})" opacity=".6" transform="skewX(-20)"/></g>
 <text x="{W-26}" y="40" text-anchor="end" font-family="{MONO}" font-size="26" font-weight="800" fill="{p['color']}" opacity=".55">0{i}</text>
 <text x="26" y="30" font-family="{MONO}" font-size="10.5" font-weight="700" letter-spacing="3" fill="#64748b">FEATURED PROJECT</text>
 <text x="26" y="58" font-family="{SANS}" font-size="21" font-weight="800" fill="url(#aur)">{esc(p["name"])}</text>
@@ -250,41 +279,42 @@ def card(c):
         img = f'<image href="data:image/jpeg;base64,{b64}" x="112" y="40" width="150" height="195" preserveAspectRatio="xMidYMin slice" clip-path="url(#ph)" mask="url(#pf)"/>'
     shape = "M145 8C175 22 215 28 262 28V300C262 340 220 372 145 394C70 372 28 340 28 300V28C75 28 115 22 145 8Z"
     def stat(v, lab, x, y):
-        return (f'<text x="{x}" y="{y}" text-anchor="end" font-family="{SANS}" font-size="23" font-weight="800" fill="#2b1a0e">{v}</text>'
-                f'<text x="{x+6}" y="{y}" font-family="{SANS}" font-size="16" font-weight="600" fill="#4a2e18">{lab}</text>')
+        return (f'<text x="{x}" y="{y}" text-anchor="end" font-family="{SANS}" font-size="23" font-weight="800" fill="#f8fafc">{v}</text>'
+                f'<text x="{x+6}" y="{y}" font-family="{SANS}" font-size="16" font-weight="600" fill="#a5b4fc">{lab}</text>')
     body = f'''<defs>{GRAD}
-<linearGradient id="br" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#e2b183"/><stop offset=".5" stop-color="#b9783f"/><stop offset="1" stop-color="#7d4b25"/></linearGradient>
+<linearGradient id="br" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#2b3a8a"/><stop offset=".5" stop-color="#4a2f9a"/><stop offset="1" stop-color="#1a1048"/></linearGradient>
 <linearGradient id="shine" gradientUnits="userSpaceOnUse" x1="-120" x2="-40" y1="0" y2="0"><stop offset="0" stop-color="#fff" stop-opacity="0"/><stop offset=".5" stop-color="#fff" stop-opacity=".38"/><stop offset="1" stop-color="#fff" stop-opacity="0"/><animateTransform attributeName="gradientTransform" type="translate" from="0 0" to="460 0" dur="5s" repeatCount="indefinite"/></linearGradient>
 <linearGradient id="pfg" x1="0" y1="0" x2="0" y2="1"><stop offset=".55" stop-color="#fff"/><stop offset="1" stop-color="#000"/></linearGradient>
 <mask id="pf"><rect x="100" y="30" width="170" height="215" fill="url(#pfg)"/></mask>
 <clipPath id="ph"><rect x="112" y="40" width="150" height="195"/></clipPath>
 <clipPath id="cs"><path d="{shape}"/></clipPath>
-<radialGradient id="cg" cx=".5" cy=".5" r=".5"><stop offset="0" stop-color="#d4a62a" stop-opacity=".30"/><stop offset="1" stop-color="#d4a62a" stop-opacity="0"/></radialGradient></defs>
+<radialGradient id="cg" cx=".5" cy=".5" r=".5"><stop offset="0" stop-color="#818cf8" stop-opacity=".30"/><stop offset="1" stop-color="#818cf8" stop-opacity="0"/></radialGradient></defs>
 <ellipse cx="145" cy="200" rx="150" ry="195" fill="url(#cg)"/>
 <path d="{shape}" fill="url(#br)"/>
 {img}
 <g clip-path="url(#cs)"><path d="{shape}" fill="none"/><rect x="0" y="0" width="{W}" height="{H}" fill="url(#shine)" transform="skewX(-18)"/></g>
-<path d="{shape}" fill="none" stroke="#f6dcb8" stroke-width="3"/>
-<path d="{shape}" fill="none" stroke="#6a3f1f" stroke-opacity=".55" stroke-width="1.2" transform="translate(145 200) scale(.935) translate(-145 -200)"/>
-<text x="68" y="104" text-anchor="middle" font-family="{SANS}" font-size="50" font-weight="800" fill="#2b1a0e">{k["overall"]}</text>
-<text x="68" y="130" text-anchor="middle" font-family="{SANS}" font-size="19" font-weight="700" fill="#3b2412" letter-spacing="1">{esc(k["pos"])}</text>
-<g transform="translate(53 144)"><rect width="30" height="20" rx="2" fill="#fff"/><rect width="30" height="6.7" fill="#ff9933"/><rect y="13.3" width="30" height="6.7" fill="#138808"/><circle cx="15" cy="10" r="2.5" fill="none" stroke="#000080" stroke-width="1"/><rect width="30" height="20" rx="2" fill="none" stroke="#3b2412" stroke-opacity=".5"/></g>
-<text x="145" y="266" text-anchor="middle" font-family="{SANS}" font-size="25" font-weight="800" letter-spacing="1" fill="#2b1a0e">{esc(k["name"])}</text>
-<rect x="68" y="275" width="154" height="1.5" fill="#3b2412" opacity=".5"/>
+<path d="{shape}" fill="none" stroke="url(#aur)" stroke-width="3"/>
+<path d="{shape}" fill="none" stroke="#22d3ee" stroke-opacity=".55" stroke-width="1.2" transform="translate(145 200) scale(.935) translate(-145 -200)"/>
+<text x="68" y="104" text-anchor="middle" font-family="{SANS}" font-size="50" font-weight="800" fill="#f8fafc">{k["overall"]}</text>
+<text x="68" y="130" text-anchor="middle" font-family="{SANS}" font-size="19" font-weight="700" fill="#c7d2fe" letter-spacing="1">{esc(k["pos"])}</text>
+<g transform="translate(53 144)"><rect width="30" height="20" rx="2" fill="#fff"/><rect width="30" height="6.7" fill="#ff9933"/><rect y="13.3" width="30" height="6.7" fill="#138808"/><circle cx="15" cy="10" r="2.5" fill="none" stroke="#000080" stroke-width="1"/><rect width="30" height="20" rx="2" fill="none" stroke="#c7d2fe" stroke-opacity=".5"/></g>
+<text x="145" y="266" text-anchor="middle" font-family="{SANS}" font-size="25" font-weight="800" letter-spacing="1" fill="#f8fafc">{esc(k["name"])}</text>
+<rect x="68" y="275" width="154" height="1.5" fill="#c7d2fe" opacity=".5"/>
 {stat(k["pac"],"PAC",98,306)}{stat(k["sho"],"SHO",98,332)}{stat(k["pas"],"PAS",98,358)}
-<rect x="145" y="288" width="1.5" height="76" fill="#3b2412" opacity=".35"/>
+<rect x="145" y="288" width="1.5" height="76" fill="#c7d2fe" opacity=".35"/>
 {stat(k["dri"],"DRI",176,306)}{stat(k["def"],"DEF",176,332)}{stat(k["phy"],"PHY",176,358)}
-<text x="145" y="381" text-anchor="middle" font-family="{MONO}" font-size="8.5" font-weight="700" letter-spacing="2" fill="#4a2e18">GITFUT.COM</text>'''
+<text x="145" y="381" text-anchor="middle" font-family="{MONO}" font-size="8.5" font-weight="700" letter-spacing="2" fill="#a5b4fc">GITFUT.COM</text>'''
     save("card.svg", W, H, body)
 
 def panels(c, st):
     import datetime as _dt
     W, H = 700, 400; pw, ph = 345, 195
-    def panel(x, y, title, right=""):
-        return (f'<rect x="{x}" y="{y}" width="{pw}" height="{ph}" rx="16" fill="url(#pbg)" stroke="url(#pst)" stroke-width="1.4"/>'
+    def panel(x, y, title, right="", w=None):
+        w = w or pw
+        return (f'<rect x="{x}" y="{y}" width="{w}" height="{ph}" rx="16" fill="url(#pbg)" stroke="url(#pst)" stroke-width="1.4"/>'
                 f'<text x="{x+22}" y="{y+34}" font-family="{SANS}" font-size="16" font-weight="800" fill="url(#aur)">{esc(title)}</text>'
-                f'<text x="{x+pw-22}" y="{y+33}" text-anchor="end" font-family="{MONO}" font-size="10.5" fill="#64748b">{esc(right)}</text>'
-                f'<rect x="{x+22}" y="{y+45}" width="{pw-44}" height="1" fill="#1e293b"/>')
+                f'<text x="{x+w-22}" y="{y+33}" text-anchor="end" font-family="{MONO}" font-size="10.5" fill="#64748b">{esc(right)}</text>'
+                f'<rect x="{x+22}" y="{y+45}" width="{w-44}" height="1" fill="#1e293b"/>')
     u = "@" + c["username"]
     s = st or {}
     langs = s.get("languages")
@@ -312,28 +342,86 @@ def panels(c, st):
     else:
         b += f'<text x="{x0+pw/2}" y="110" text-anchor="middle" font-family="{SANS}" font-size="13" fill="#64748b">Fills automatically after the</text><text x="{x0+pw/2}" y="130" text-anchor="middle" font-family="{SANS}" font-size="13" fill="#64748b">first "Update GitHub stats" run</text>'
     # 3) streak
-    y0 = 205; b += panel(0, y0, "Contribution Streak", "past year")
+    y0 = 205; b += panel(0, y0, "Contribution Streak", "past year", w=700)
     cur, lon = s.get("streak_current"), s.get("streak_longest")
     def md(d):
         try: return _dt.date.fromisoformat(d).strftime("%b %d").replace(" 0", " ")
         except Exception: return ""
     rng = f'{md(s.get("streak_start"))} – {md(s.get("streak_end"))}' if s.get("streak_start") else "–"
-    for xx in (115, 230): b += f'<rect x="{xx}" y="{y0+62}" width="1" height="100" fill="#1e293b"/>'
-    b += f'<text x="57" y="{y0+105}" text-anchor="middle" font-family="{SANS}" font-size="28" font-weight="800" fill="#f1f5f9">{fmt(s.get("contributions"))}</text><text x="57" y="{y0+126}" text-anchor="middle" font-family="{SANS}" font-size="11" fill="#94a3b8">Total</text><text x="57" y="{y0+140}" text-anchor="middle" font-family="{SANS}" font-size="11" fill="#64748b">contributions</text>'
+    for xx in (233, 467): b += f'<rect x="{xx}" y="{y0+62}" width="1" height="100" fill="#1e293b"/>'
+    b += f'<text x="117" y="{y0+105}" text-anchor="middle" font-family="{SANS}" font-size="28" font-weight="800" fill="#f1f5f9">{fmt(s.get("contributions"))}</text><text x="117" y="{y0+126}" text-anchor="middle" font-family="{SANS}" font-size="11" fill="#94a3b8">Total</text><text x="117" y="{y0+140}" text-anchor="middle" font-family="{SANS}" font-size="11" fill="#64748b">contributions</text>'
     circ = 2*3.14159*30; frac = min(1, (cur or 0) / (lon or 1)) if lon else 0
-    b += f'<g transform="translate(172 {y0+98})"><circle r="30" fill="none" stroke="#1e293b" stroke-width="6"/><circle r="30" fill="none" stroke="url(#aur)" stroke-width="6" stroke-linecap="round" transform="rotate(-90)" stroke-dasharray="{frac*circ:.1f} {circ:.1f}"><animate attributeName="stroke-dasharray" from="0 {circ:.1f}" to="{frac*circ:.1f} {circ:.1f}" dur="1.4s" fill="freeze"/></circle><text y="9" text-anchor="middle" font-family="{SANS}" font-size="26" font-weight="800" fill="#f1f5f9">{fmt(cur)}</text></g>'
-    b += f'<text x="172" y="{y0+150}" text-anchor="middle" font-family="{SANS}" font-size="12" font-weight="700" fill="{C1}">Current Streak</text>'
-    b += f'<text x="288" y="{y0+105}" text-anchor="middle" font-family="{SANS}" font-size="28" font-weight="800" fill="#f1f5f9">{fmt(lon)}</text><text x="288" y="{y0+126}" text-anchor="middle" font-family="{SANS}" font-size="12" font-weight="700" fill="{C3}">Longest</text><text x="288" y="{y0+142}" text-anchor="middle" font-family="{SANS}" font-size="10.5" fill="#64748b">{esc(rng)}</text>'
-    # 4) scout CTA
-    x1 = 355; b += f'<rect x="{x1}" y="{y0}" width="{pw}" height="{ph}" rx="16" fill="url(#pbg)" stroke="url(#pst)" stroke-width="1.4"/>'
-    b += f'<circle cx="{x1+30}" cy="{y0+30}" r="4" fill="#fb923c"><animate attributeName="opacity" values="1;.2;1" dur="1.4s" repeatCount="indefinite"/></circle><text x="{x1+44}" y="{y0+34}" font-family="{MONO}" font-size="11" font-weight="700" letter-spacing="3" fill="#64748b">SCOUT REPORT</text>'
-    b += f'<text x="{x1+24}" y="{y0+84}" font-family="{SANS}" font-size="23" font-weight="800" fill="#f1f5f9">Got carded at <tspan fill="#e2b183">{c["card"]["overall"]}</tspan> overall.</text>'
-    b += f'<text x="{x1+24}" y="{y0+112}" font-family="Georgia,serif" font-style="italic" font-size="16" fill="#94a3b8">The scouts (nobody) are calling.</text>'
-    b += f'<g transform="translate({x1+24} {y0+136})"><rect width="168" height="34" rx="17" fill="url(#aur)"/><text x="84" y="22" text-anchor="middle" font-family="{MONO}" font-size="12" font-weight="800" letter-spacing="1.5" fill="#0a0c14">GET SCOUTED →</text></g>'
+    b += f'<g transform="translate(350 {y0+98})"><circle r="30" fill="none" stroke="#1e293b" stroke-width="6"/><circle r="30" fill="none" stroke="url(#aur)" stroke-width="6" stroke-linecap="round" transform="rotate(-90)" stroke-dasharray="{frac*circ:.1f} {circ:.1f}"><animate attributeName="stroke-dasharray" from="0 {circ:.1f}" to="{frac*circ:.1f} {circ:.1f}" dur="1.4s" fill="freeze"/></circle><text y="9" text-anchor="middle" font-family="{SANS}" font-size="26" font-weight="800" fill="#f1f5f9">{fmt(cur)}</text></g>'
+    b += f'<text x="350" y="{y0+150}" text-anchor="middle" font-family="{SANS}" font-size="12" font-weight="700" fill="{C1}">Current Streak</text>'
+    b += f'<text x="583" y="{y0+105}" text-anchor="middle" font-family="{SANS}" font-size="28" font-weight="800" fill="#f1f5f9">{fmt(lon)}</text><text x="583" y="{y0+126}" text-anchor="middle" font-family="{SANS}" font-size="12" font-weight="700" fill="{C3}">Longest</text><text x="583" y="{y0+142}" text-anchor="middle" font-family="{SANS}" font-size="10.5" fill="#64748b">{esc(rng)}</text>'
     body = f'''<defs>{GRAD}<linearGradient id="pbg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#131a2e"/><stop offset="1" stop-color="#0c1020"/></linearGradient>
 <linearGradient id="pst" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="{C1}" stop-opacity=".55"/><stop offset=".5" stop-color="{C2}" stop-opacity=".35"/><stop offset="1" stop-color="{C3}" stop-opacity=".55"/></linearGradient></defs>{b}'''
     save("stats-panels.svg", W, H, body)
 
+
+def mono_path(xs, ys):
+    n = len(xs)
+    if n < 2: return ""
+    dx = [xs[i+1]-xs[i] for i in range(n-1)]; dy = [ys[i+1]-ys[i] for i in range(n-1)]
+    m = [dy[i]/dx[i] for i in range(n-1)]
+    t = [m[0]] + [(m[i-1]+m[i])/2 if m[i-1]*m[i] > 0 else 0 for i in range(1, n-1)] + [m[-1]]
+    for i in range(n-1):
+        if m[i] == 0: t[i] = t[i+1] = 0
+        else:
+            a_, b_ = t[i]/m[i], t[i+1]/m[i]; q = a_*a_ + b_*b_
+            if q > 9: k = 3/q**.5; t[i] = k*a_*m[i]; t[i+1] = k*b_*m[i]
+    d = f"M{xs[0]:.1f} {ys[0]:.1f}"
+    for i in range(n-1):
+        h = dx[i]
+        d += f" C{xs[i]+h/3:.1f} {ys[i]+t[i]*h/3:.1f} {xs[i+1]-h/3:.1f} {ys[i+1]-t[i+1]*h/3:.1f} {xs[i+1]:.1f} {ys[i+1]:.1f}"
+    return d
+
+def graph(c, st):
+    import datetime as _dt
+    W, H = 1000, 340; L, R, T, B = 96, 944, 100, 262
+    daily = (st or {}).get("daily") or []
+    n = len(daily); vals = [d["count"] for d in daily]
+    mx = max(vals) if vals else 0
+    ymax = max(4, ((mx + 3)//4)*4)
+    def fd(s_):
+        d = _dt.date.fromisoformat(s_); return f"{d.strftime('%b')} {d.day}"
+    xs = [L + i*(R-L)/max(1, n-1) for i in range(n)]
+    ys = [B - v/ymax*(B-T) for v in vals]
+    grid = ""
+    for k in range(5):
+        yy = B - k*(B-T)/4
+        grid += f'<line x1="{L}" x2="{R}" y1="{yy:.1f}" y2="{yy:.1f}" stroke="#334155" stroke-opacity=".55" stroke-dasharray="3 6"/><text x="{L-16}" y="{yy+4:.1f}" text-anchor="end" font-family="{SANS}" font-size="12" fill="#64748b">{int(ymax*k/4)}</text>'
+    if n >= 2:
+        d = mono_path(xs, ys)
+        area = d + f" L{xs[-1]:.1f} {B} L{xs[0]:.1f} {B} Z"
+        marks = "".join(f'<circle cx="{x:.1f}" cy="{y:.1f}" r="3.6" fill="#0a0c14" stroke="#fff" stroke-width="1.6"/>' for x, y in list(zip(xs, ys))[:-1])
+        pk = vals.index(mx)
+        label = f"Peak · {mx} · {fd(daily[pk]['date'])}"; pw_ = len(label)*7.4 + 30
+        px_ = min(max(xs[pk] - 10, L - 24), R - pw_)
+        peak = (f'<g transform="translate({px_:.1f} {max(58, ys[pk]-40):.1f})"><rect width="{pw_:.1f}" height="28" rx="14" fill="url(#aur)"/>'
+                f'<text x="{pw_/2:.1f}" y="18.5" text-anchor="middle" font-family="{SANS}" font-size="12.5" font-weight="800" fill="#0a0c14">{esc(label)}</text></g>') if mx > 0 else ""
+        lab = ""
+        for i in range(0, n, 5):
+            lab += f'<text x="{xs[i]:.1f}" y="{B+22}" text-anchor="middle" font-family="{SANS}" font-size="12" fill="#64748b">{fd(daily[i]["date"])}</text>'
+        if (n-1) % 5: lab += f'<text x="{xs[-1]:.1f}" y="{B+22}" text-anchor="middle" font-family="{SANS}" font-size="12" fill="#64748b">{fd(daily[-1]["date"])}</text>'
+        chart = (f'<path d="{area}" fill="url(#ar)"/>'
+                 f'<path d="{d}" fill="none" stroke="url(#lg)" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round" filter="url(#glow)" pathLength="1" stroke-dasharray="1" stroke-dashoffset="0"><animate attributeName="stroke-dashoffset" from="1" to="0" dur="2.2s" fill="freeze"/></path>'
+                 f'{marks}<circle cx="{xs[-1]:.1f}" cy="{ys[-1]:.1f}" r="9" fill="{C1}" fill-opacity=".25"><animate attributeName="r" values="7;13;7" dur="2.4s" repeatCount="indefinite"/></circle>'
+                 f'<circle cx="{xs[-1]:.1f}" cy="{ys[-1]:.1f}" r="5.5" fill="#fff"/>{peak}{lab}')
+        total = sum(vals); rng = f"Last {n-1} days · {fd(daily[0]['date'])} – {fd(daily[-1]['date'])} · {total} total"
+    else:
+        chart = (f'<line x1="{L}" x2="{R}" y1="{B}" y2="{B}" stroke="url(#lg)" stroke-width="3"/>'
+                 f'<text x="500" y="{(T+B)/2:.0f}" text-anchor="middle" font-family="{SANS}" font-size="14" fill="#64748b">Fills automatically after the first "Update GitHub stats" run</text>')
+        rng = "Last 30 days"
+    body = f"""<defs>{GRAD}<linearGradient id="lg" gradientUnits="userSpaceOnUse" x1="{L}" x2="{R}" y1="0" y2="0"><stop offset="0" stop-color="{C1}"/><stop offset=".5" stop-color="{C2}"/><stop offset="1" stop-color="{C3}"/></linearGradient>
+<linearGradient id="ar" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="{C2}" stop-opacity=".38"/><stop offset="1" stop-color="{C2}" stop-opacity="0"/></linearGradient>
+<linearGradient id="gbg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#131a2e"/><stop offset="1" stop-color="#0b0f1d"/></linearGradient></defs>
+<rect x="2" y="2" width="{W-4}" height="{H-4}" rx="20" fill="url(#gbg)" stroke="url(#aur)" stroke-opacity=".7" stroke-width="1.6"/>
+<g fill="none" stroke="url(#aur)" stroke-width="2.6" stroke-linecap="round"><path d="M24 58V30a4 4 0 0 1 4-4h28"/><path d="M{W-24} {H-58}v28a4 4 0 0 1-4 4h-28"/></g>
+<circle cx="76" cy="42" r="5" fill="{C1}"/><text x="92" y="48" font-family="{SANS}" font-size="18" font-weight="800" letter-spacing="1.2" fill="url(#aur)">CONTRIBUTION ACTIVITY</text>
+<text x="{W-40}" y="47" text-anchor="end" font-family="{SANS}" font-size="14" fill="#e2e8f0">{esc(rng)}</text>
+{grid}{chart}"""
+    save("graph.svg", W, H, body)
 
 def quote(c):
     q, a = c["quote"]; W, H = 1000, 120
@@ -379,9 +467,9 @@ def readme(c):
 
 <img src="assets/divider.svg" width="100%" alt=""/>
 
-<img src="assets/h5.svg" width="100%" alt="Contribution Snake"/>
+<img src="assets/h5.svg" width="100%" alt="Contribution Graph"/>
 
-<img src="https://raw.githubusercontent.com/{u}/{u}/output/github-snake-dark.svg" width="100%" alt="snake"/>
+<img src="assets/graph.svg" width="100%" alt="Contribution graph"/>
 
 <img src="assets/quote.svg" width="100%" alt="quote"/>
 
@@ -393,6 +481,7 @@ def readme(c):
 
 if __name__ == "__main__":
     c = CONFIG
-    banner(c); banner(c, footer=True); divider(); chips(c); about(c); card(c); panels(c, load_stats()); stack(c); cards(c); quote(c)
+    st = load_stats() or c.get("stats_manual")
+    banner(c); banner(c, footer=True); divider(); chips(c); about(c); card(c); panels(c, st); graph(c, st); stack(c); cards(c); quote(c)
     for i, s in enumerate(c["sections"], 1): header(s, i)
     readme(c); print("built:", sorted(p.name for p in OUT.iterdir()))
