@@ -13,6 +13,8 @@ CONFIG = {
     "bio": "I turn messy data and half-formed ideas into products that work, from React front-ends to ML pipelines.",
     "motto": "Build simple. Make it work. Then scale.",
     "photo": "photo.jpg",
+    "gitfut_url": "https://gitfut.com/DeepakGupta2006?country=in",
+    "card": {"overall": 64, "pos": "RW", "name": "D GUPTA", "pac": 67, "sho": 64, "pas": 54, "dri": 75, "def": 40, "phy": 63},
     "chips": ["Developer", "Full-Stack", "Open Source", "Always Learning"],
     "quote": ("Software is eating the world.", "MARC ANDREESSEN"),
     "stack": {
@@ -24,16 +26,16 @@ CONFIG = {
     "projects": [
         {"name": "Zero Spoof", "desc": "Anti-spoofing system that detects fake faces, photos and replay attacks before they get access.",
          "tags": ["Python", "OpenCV", "Deep Learning"], "lang": "Python", "color": "#34d399",
-         "url": "https://github.com/DeepakGupta2006/ZeroSpoof"},
+         "url": "https://github.com/DeepakGupta2006?tab=repositories"},
         {"name": "Fake News Detector", "desc": "NLP model that reads a news headline or article and tells you if it is real or fake.",
          "tags": ["Python", "NLP", "scikit-learn", "Flask"], "lang": "Python", "color": "#38bdf8",
-         "url": "https://github.com/DeepakGupta2006/fake-news-detector"},
+         "url": "https://github.com/DeepakGupta2006?tab=repositories"},
         {"name": "NextCart", "desc": "Full-stack shopping website with product pages, live cart, checkout and an admin panel.",
          "tags": ["Next.js", "React", "MongoDB", "Tailwind"], "lang": "JavaScript", "color": "#818cf8",
-         "url": "https://github.com/DeepakGupta2006/NextCart"},
+         "url": "https://github.com/DeepakGupta2006?tab=repositories"},
         {"name": "Food Delivery", "desc": "Food ordering app with menu browsing, cart, order placing and order tracking.",
          "tags": ["React", "Node.js", "Express", "MongoDB"], "lang": "JavaScript", "color": "#fb923c",
-         "url": "https://github.com/DeepakGupta2006/food-del"},
+         "url": "https://github.com/DeepakGupta2006?tab=repositories"},
     ],
     "sections": ["About Me", "Tech Stack", "Featured Projects", "GitHub Stats", "Contribution Snake"],
 }
@@ -229,6 +231,110 @@ def about(c):
 <g transform="translate({px+pw/2} {py+ph-24})"><rect x="-96" y="-14" width="192" height="28" rx="14" fill="#0a0c14" fill-opacity=".78" stroke="url(#aur)" stroke-width="1"/><circle cx="-78" r="3.2" fill="{C1}"><animate attributeName="opacity" values="1;.2;1" dur="1.6s" repeatCount="indefinite"/></circle><text x="6" y="4" text-anchor="middle" font-family="{MONO}" font-size="11" font-weight="700" letter-spacing="2" fill="#e2e8f0">{esc(c["name"].upper())}</text></g>'''
     save("about.svg", W, H, body)
 
+# ---------------- scouting card + stats panels ----------------
+def load_stats():
+    import json
+    f = pathlib.Path(__file__).parent / "data" / "stats.json"
+    try: return json.loads(f.read_text(encoding="utf-8"))
+    except Exception: return None
+
+def fmt(v): return f"{v:,}" if isinstance(v, int) else "–"
+
+def card(c):
+    import base64
+    k = c["card"]; W, H = 290, 400
+    photo = pathlib.Path(__file__).parent / c.get("photo", "photo.jpg")
+    img = ""
+    if photo.exists():
+        b64 = base64.b64encode(photo.read_bytes()).decode()
+        img = f'<image href="data:image/jpeg;base64,{b64}" x="112" y="40" width="150" height="195" preserveAspectRatio="xMidYMin slice" clip-path="url(#ph)" mask="url(#pf)"/>'
+    shape = "M145 8C175 22 215 28 262 28V300C262 340 220 372 145 394C70 372 28 340 28 300V28C75 28 115 22 145 8Z"
+    def stat(v, lab, x, y):
+        return (f'<text x="{x}" y="{y}" text-anchor="end" font-family="{SANS}" font-size="23" font-weight="800" fill="#2b1a0e">{v}</text>'
+                f'<text x="{x+6}" y="{y}" font-family="{SANS}" font-size="16" font-weight="600" fill="#4a2e18">{lab}</text>')
+    body = f'''<defs>{GRAD}
+<linearGradient id="br" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#e2b183"/><stop offset=".5" stop-color="#b9783f"/><stop offset="1" stop-color="#7d4b25"/></linearGradient>
+<linearGradient id="shine" gradientUnits="userSpaceOnUse" x1="-120" x2="-40" y1="0" y2="0"><stop offset="0" stop-color="#fff" stop-opacity="0"/><stop offset=".5" stop-color="#fff" stop-opacity=".38"/><stop offset="1" stop-color="#fff" stop-opacity="0"/><animateTransform attributeName="gradientTransform" type="translate" from="0 0" to="460 0" dur="5s" repeatCount="indefinite"/></linearGradient>
+<linearGradient id="pfg" x1="0" y1="0" x2="0" y2="1"><stop offset=".55" stop-color="#fff"/><stop offset="1" stop-color="#000"/></linearGradient>
+<mask id="pf"><rect x="100" y="30" width="170" height="215" fill="url(#pfg)"/></mask>
+<clipPath id="ph"><rect x="112" y="40" width="150" height="195"/></clipPath>
+<clipPath id="cs"><path d="{shape}"/></clipPath>
+<radialGradient id="cg" cx=".5" cy=".5" r=".5"><stop offset="0" stop-color="#d4a62a" stop-opacity=".30"/><stop offset="1" stop-color="#d4a62a" stop-opacity="0"/></radialGradient></defs>
+<ellipse cx="145" cy="200" rx="150" ry="195" fill="url(#cg)"/>
+<path d="{shape}" fill="url(#br)"/>
+{img}
+<g clip-path="url(#cs)"><path d="{shape}" fill="none"/><rect x="0" y="0" width="{W}" height="{H}" fill="url(#shine)" transform="skewX(-18)"/></g>
+<path d="{shape}" fill="none" stroke="#f6dcb8" stroke-width="3"/>
+<path d="{shape}" fill="none" stroke="#6a3f1f" stroke-opacity=".55" stroke-width="1.2" transform="translate(145 200) scale(.935) translate(-145 -200)"/>
+<text x="68" y="104" text-anchor="middle" font-family="{SANS}" font-size="50" font-weight="800" fill="#2b1a0e">{k["overall"]}</text>
+<text x="68" y="130" text-anchor="middle" font-family="{SANS}" font-size="19" font-weight="700" fill="#3b2412" letter-spacing="1">{esc(k["pos"])}</text>
+<g transform="translate(53 144)"><rect width="30" height="20" rx="2" fill="#fff"/><rect width="30" height="6.7" fill="#ff9933"/><rect y="13.3" width="30" height="6.7" fill="#138808"/><circle cx="15" cy="10" r="2.5" fill="none" stroke="#000080" stroke-width="1"/><rect width="30" height="20" rx="2" fill="none" stroke="#3b2412" stroke-opacity=".5"/></g>
+<text x="145" y="266" text-anchor="middle" font-family="{SANS}" font-size="25" font-weight="800" letter-spacing="1" fill="#2b1a0e">{esc(k["name"])}</text>
+<rect x="68" y="275" width="154" height="1.5" fill="#3b2412" opacity=".5"/>
+{stat(k["pac"],"PAC",98,306)}{stat(k["sho"],"SHO",98,332)}{stat(k["pas"],"PAS",98,358)}
+<rect x="145" y="288" width="1.5" height="76" fill="#3b2412" opacity=".35"/>
+{stat(k["dri"],"DRI",176,306)}{stat(k["def"],"DEF",176,332)}{stat(k["phy"],"PHY",176,358)}
+<text x="145" y="381" text-anchor="middle" font-family="{MONO}" font-size="8.5" font-weight="700" letter-spacing="2" fill="#4a2e18">GITFUT.COM</text>'''
+    save("card.svg", W, H, body)
+
+def panels(c, st):
+    import datetime as _dt
+    W, H = 700, 400; pw, ph = 345, 195
+    def panel(x, y, title, right=""):
+        return (f'<rect x="{x}" y="{y}" width="{pw}" height="{ph}" rx="16" fill="url(#pbg)" stroke="url(#pst)" stroke-width="1.4"/>'
+                f'<text x="{x+22}" y="{y+34}" font-family="{SANS}" font-size="16" font-weight="800" fill="url(#aur)">{esc(title)}</text>'
+                f'<text x="{x+pw-22}" y="{y+33}" text-anchor="end" font-family="{MONO}" font-size="10.5" fill="#64748b">{esc(right)}</text>'
+                f'<rect x="{x+22}" y="{y+45}" width="{pw-44}" height="1" fill="#1e293b"/>')
+    u = "@" + c["username"]
+    s = st or {}
+    langs = s.get("languages")
+    # 1) stats
+    b = panel(0, 0, "GitHub Stats", u)
+    rows = [("Contributions (year)", s.get("contributions")), ("Stars earned", s.get("stars")), ("Pull requests", s.get("prs")),
+            ("Issues", s.get("issues")), ("Repositories", s.get("repos")), ("Followers", s.get("followers"))]
+    for i, (lab, v) in enumerate(rows):
+        y = 70 + i*20.5
+        b += f'<text x="22" y="{y+4:.0f}" font-family="{SANS}" font-size="13" fill="#94a3b8">{lab}</text><text x="{pw-22}" y="{y+4:.0f}" text-anchor="end" font-family="{MONO}" font-size="13.5" font-weight="800" fill="{C1}">{fmt(v)}</text>'
+    # 2) languages
+    x0 = 355; b += panel(x0, 0, "Top Languages", "by code size")
+    if langs:
+        top = langs[:4]; other = round(100 - sum(l["pct"] for l in top), 1)
+        if other > 0.1: top = top + [{"name": "Other", "pct": other, "color": "#475569"}]
+        bx = x0 + 22; bw = pw - 44; cx = bx
+        b += f'<clipPath id="lb"><rect x="{bx}" y="60" width="{bw}" height="9" rx="4.5"/></clipPath><g clip-path="url(#lb)">'
+        tot = sum(l["pct"] for l in top) or 1
+        for l in top:
+            w = bw * l["pct"] / tot; b += f'<rect x="{cx:.1f}" y="60" width="{w+.5:.1f}" height="9" fill="{l["color"]}"/>'; cx += w
+        b += '</g>'
+        for i, l in enumerate(top):
+            y = 94 + i*20
+            b += f'<circle cx="{x0+28}" cy="{y}" r="4.5" fill="{l["color"]}"/><text x="{x0+42}" y="{y+4}" font-family="{SANS}" font-size="13" fill="#cbd5e1">{esc(l["name"])}</text><text x="{x0+pw-22}" y="{y+4}" text-anchor="end" font-family="{MONO}" font-size="12.5" fill="#94a3b8">{l["pct"]}%</text>'
+    else:
+        b += f'<text x="{x0+pw/2}" y="110" text-anchor="middle" font-family="{SANS}" font-size="13" fill="#64748b">Fills automatically after the</text><text x="{x0+pw/2}" y="130" text-anchor="middle" font-family="{SANS}" font-size="13" fill="#64748b">first "Update GitHub stats" run</text>'
+    # 3) streak
+    y0 = 205; b += panel(0, y0, "Contribution Streak", "past year")
+    cur, lon = s.get("streak_current"), s.get("streak_longest")
+    def md(d):
+        try: return _dt.date.fromisoformat(d).strftime("%b %d").replace(" 0", " ")
+        except Exception: return ""
+    rng = f'{md(s.get("streak_start"))} – {md(s.get("streak_end"))}' if s.get("streak_start") else "–"
+    for xx in (115, 230): b += f'<rect x="{xx}" y="{y0+62}" width="1" height="100" fill="#1e293b"/>'
+    b += f'<text x="57" y="{y0+105}" text-anchor="middle" font-family="{SANS}" font-size="28" font-weight="800" fill="#f1f5f9">{fmt(s.get("contributions"))}</text><text x="57" y="{y0+126}" text-anchor="middle" font-family="{SANS}" font-size="11" fill="#94a3b8">Total</text><text x="57" y="{y0+140}" text-anchor="middle" font-family="{SANS}" font-size="11" fill="#64748b">contributions</text>'
+    circ = 2*3.14159*30; frac = min(1, (cur or 0) / (lon or 1)) if lon else 0
+    b += f'<g transform="translate(172 {y0+98})"><circle r="30" fill="none" stroke="#1e293b" stroke-width="6"/><circle r="30" fill="none" stroke="url(#aur)" stroke-width="6" stroke-linecap="round" transform="rotate(-90)" stroke-dasharray="{frac*circ:.1f} {circ:.1f}"><animate attributeName="stroke-dasharray" from="0 {circ:.1f}" to="{frac*circ:.1f} {circ:.1f}" dur="1.4s" fill="freeze"/></circle><text y="9" text-anchor="middle" font-family="{SANS}" font-size="26" font-weight="800" fill="#f1f5f9">{fmt(cur)}</text></g>'
+    b += f'<text x="172" y="{y0+150}" text-anchor="middle" font-family="{SANS}" font-size="12" font-weight="700" fill="{C1}">Current Streak</text>'
+    b += f'<text x="288" y="{y0+105}" text-anchor="middle" font-family="{SANS}" font-size="28" font-weight="800" fill="#f1f5f9">{fmt(lon)}</text><text x="288" y="{y0+126}" text-anchor="middle" font-family="{SANS}" font-size="12" font-weight="700" fill="{C3}">Longest</text><text x="288" y="{y0+142}" text-anchor="middle" font-family="{SANS}" font-size="10.5" fill="#64748b">{esc(rng)}</text>'
+    # 4) scout CTA
+    x1 = 355; b += f'<rect x="{x1}" y="{y0}" width="{pw}" height="{ph}" rx="16" fill="url(#pbg)" stroke="url(#pst)" stroke-width="1.4"/>'
+    b += f'<circle cx="{x1+30}" cy="{y0+30}" r="4" fill="#fb923c"><animate attributeName="opacity" values="1;.2;1" dur="1.4s" repeatCount="indefinite"/></circle><text x="{x1+44}" y="{y0+34}" font-family="{MONO}" font-size="11" font-weight="700" letter-spacing="3" fill="#64748b">SCOUT REPORT</text>'
+    b += f'<text x="{x1+24}" y="{y0+84}" font-family="{SANS}" font-size="23" font-weight="800" fill="#f1f5f9">Got carded at <tspan fill="#e2b183">{c["card"]["overall"]}</tspan> overall.</text>'
+    b += f'<text x="{x1+24}" y="{y0+112}" font-family="Georgia,serif" font-style="italic" font-size="16" fill="#94a3b8">The scouts (nobody) are calling.</text>'
+    b += f'<g transform="translate({x1+24} {y0+136})"><rect width="168" height="34" rx="17" fill="url(#aur)"/><text x="84" y="22" text-anchor="middle" font-family="{MONO}" font-size="12" font-weight="800" letter-spacing="1.5" fill="#0a0c14">GET SCOUTED →</text></g>'
+    body = f'''<defs>{GRAD}<linearGradient id="pbg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#131a2e"/><stop offset="1" stop-color="#0c1020"/></linearGradient>
+<linearGradient id="pst" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="{C1}" stop-opacity=".55"/><stop offset=".5" stop-color="{C2}" stop-opacity=".35"/><stop offset="1" stop-color="{C3}" stop-opacity=".55"/></linearGradient></defs>{b}'''
+    save("stats-panels.svg", W, H, body)
+
+
 def quote(c):
     q, a = c["quote"]; W, H = 1000, 120
     body = f'''<defs>{GRAD}</defs><text x="500" y="56" text-anchor="middle" font-family="Georgia,'Times New Roman',serif" font-style="italic" font-size="26" fill="#e2e8f0">“{esc(q)}”</text>
@@ -237,9 +343,6 @@ def quote(c):
 
 def readme(c):
     u = c["username"]
-    stats_q = f"username={u}&show_icons=true&hide_border=true&bg_color=0a0c14&title_color=22d3ee&icon_color=e879f9&text_color=cbd5e1&ring_color=818cf8"
-    streak = f"user={u}&theme=dark&hide_border=true&background=0a0c14&ring=818cf8&fire=e879f9&currStreakNum=22d3ee&sideNums=c7d2fe&currStreakLabel=818cf8&sideLabels=94a3b8&dates=64748b"
-    langs = f"username={u}&layout=compact&hide_border=true&bg_color=0a0c14&title_color=22d3ee&text_color=cbd5e1"
     P = lambda i: f'<a href="{c["projects"][i]["url"]}"><img src="assets/project{i+1}.svg" width="49%" alt="{c["projects"][i]["name"]}"/></a>'
     n = len(c["projects"])
     proj = "\n".join(P(i) + ("\n" if i % 2 else " ") for i in range(n))
@@ -269,10 +372,10 @@ def readme(c):
 
 <img src="assets/h4.svg" width="100%" alt="GitHub Stats"/>
 
-<img height="170" src="https://github-readme-stats.vercel.app/api?{stats_q}" alt="stats"/>
-<img height="170" src="https://github-readme-stats.vercel.app/api/top-langs/?{langs}" alt="languages"/>
+<a href="{c["gitfut_url"]}"><img src="assets/card.svg" width="28.8%" alt="GitFut card"/></a>
+<img src="assets/stats-panels.svg" width="69.5%" alt="GitHub stats"/>
 
-<img src="https://streak-stats.demolab.com?{streak}" width="97%" alt="streak"/>
+<a href="{c["gitfut_url"]}"><b>Get scouted →</b></a>
 
 <img src="assets/divider.svg" width="100%" alt=""/>
 
@@ -290,6 +393,6 @@ def readme(c):
 
 if __name__ == "__main__":
     c = CONFIG
-    banner(c); banner(c, footer=True); divider(); chips(c); about(c); stack(c); cards(c); quote(c)
+    banner(c); banner(c, footer=True); divider(); chips(c); about(c); card(c); panels(c, load_stats()); stack(c); cards(c); quote(c)
     for i, s in enumerate(c["sections"], 1): header(s, i)
     readme(c); print("built:", sorted(p.name for p in OUT.iterdir()))
