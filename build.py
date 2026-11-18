@@ -15,7 +15,7 @@ CONFIG = {
     "photo": "photo.jpg",
     "gitfut_url": "https://gitfut.com/DeepakGupta2006?country=in",
     "card": {"overall": 64, "pos": "RW", "name": "D GUPTA", "pac": 67, "sho": 64, "pas": 54, "dri": 75, "def": 40, "phy": 63},
-    "chips": ["Developer", "Full-Stack", "Open Source", "Always Learning"],
+    "chips": ["he/him", "BCA", "Full-Stack", "AI / ML"],
     "quote": ("Software is eating the world.", "MARC ANDREESSEN"),
     "stack_rows": [
         [("C++","cplusplus"),("React","react"),("Next.js","nextdotjs"),("Tailwind","tailwindcss"),("HTML","html5"),("CSS","css3"),("JavaScript","javascript"),("TypeScript","typescript"),("Python","python"),("Node.js","nodedotjs")],
@@ -28,16 +28,16 @@ CONFIG = {
     "projects": [
         {"name": "Zero Spoof", "desc": "Anti-spoofing system that detects fake faces, photos and replay attacks before they get access.",
          "tags": ["Python", "OpenCV", "Deep Learning"], "lang": "Python", "color": "#34d399",
-         "url": "https://github.com/DeepakGupta2006/ZeroSpoof"},
+         "url": "https://github.com/DeepakGupta2006?tab=repositories"},
         {"name": "Fake News Detector", "desc": "NLP model that reads a news headline or article and tells you if it is real or fake.",
          "tags": ["Python", "NLP", "scikit-learn", "Flask"], "lang": "Python", "color": "#38bdf8",
-         "url": "https://github.com/DeepakGupta2006/fake-news-detector"},
+         "url": "https://github.com/DeepakGupta2006?tab=repositories"},
         {"name": "NextCart", "desc": "Full-stack shopping website with product pages, live cart, checkout and an admin panel.",
          "tags": ["Next.js", "React", "MongoDB", "Tailwind"], "lang": "JavaScript", "color": "#818cf8",
-         "url": "https://github.com/DeepakGupta2006/NextCart"},
+         "url": "https://github.com/DeepakGupta2006?tab=repositories"},
         {"name": "Food Delivery", "desc": "Food ordering app with menu browsing, cart, order placing and order tracking.",
          "tags": ["React", "Node.js", "Express", "MongoDB"], "lang": "JavaScript", "color": "#fb923c",
-         "url": "https://github.com/DeepakGupta2006/food-del"},
+         "url": "https://github.com/DeepakGupta2006?tab=repositories"},
     ],
     "sections": ["About Me", "Tech Stack", "Featured Projects", "GitHub Stats", "Contribution Graph"],
 }
@@ -217,47 +217,53 @@ def cards(c):
 
 def about(c):
     import base64
-    W, H = 1000, 380
+    W, H = 1000, 360
     photo = pathlib.Path(__file__).parent / c.get("photo", "photo.jpg")
-    px, py, pw, ph = 676, 24, 268, 335
-    lines = textwrap.wrap(c["bio"], 56)
-    chips_h = 34 + 22 * ((sum(len(t)*8.4+34+12 for t in c["chips"]) > 560))
-    total = len(lines)*28 + 28 + 34 + 44
-    y0 = py + (ph - total)/2 + 18
+    px, py, pw, ph = 706, 32, 236, 295
+    cx = 340
+    lines = textwrap.wrap(c["bio"], 46)
+    ws = [len(t)*8.2 + 38 for t in c["chips"]]; tot = sum(ws) + 12*(len(ws)-1)
+    block = len(lines)*26 + 30 + 34 + 62
+    y0 = py + (ph - block)/2 + 16
     t = ""
     for i, l in enumerate(lines):
-        t += f'<text x="48" y="{y0+i*28:.0f}" font-family="{SANS}" font-size="17.5" fill="#cbd5e1">{esc(l)}</text>'
-    cy = y0 + len(lines)*28 + 6
-    x = 48; row = 0
-    for i, tx in enumerate(c["chips"]):
-        w = len(tx)*8.4 + 34
-        if x + w > 620: x = 48; row += 1
-        t += f'''<g transform="translate({x:.0f} {cy+row*44:.0f})"><rect width="{w:.0f}" height="34" rx="17" fill="#111827" fill-opacity=".85" stroke="url(#aur)" stroke-width="1.3"/><circle cx="16" cy="17" r="3" fill="{[C1,C2,C3][i%3]}"><animate attributeName="opacity" values="1;.3;1" dur="2.4s" begin="{i*.4}s" repeatCount="indefinite"/></circle><text x="{w/2+6:.0f}" y="21.5" text-anchor="middle" font-family="{MONO}" font-size="12.5" fill="#e2e8f0">{esc(tx)}</text></g>'''
+        t += f'<text x="{cx}" y="{y0+i*26:.0f}" text-anchor="middle" font-family="{SANS}" font-size="16.5" fill="#94a3b8">{esc(l)}</text>'
+    cy = y0 + (len(lines)-1)*26 + 28
+    x = cx - tot/2
+    for i, (tx, w) in enumerate(zip(c["chips"], ws)):
+        t += (f'<g transform="translate({x:.0f} {cy:.0f})"><rect width="{w:.0f}" height="34" rx="17" fill="#0f172a" fill-opacity=".85" stroke="url(#aur)" stroke-width="1.4"/>'
+              f'<rect x="3" y="3" width="{w-6:.0f}" height="28" rx="14" fill="none" stroke="{C2}" stroke-opacity=".28"/>'
+              f'<text x="{w/2:.0f}" y="21.5" text-anchor="middle" font-family="{MONO}" font-size="12.5" font-weight="700" fill="#e2e8f0">{esc(tx)}</text></g>')
         x += w + 12
-    my = cy + (row+1)*44 + 24
-    t += f'<text x="48" y="{my:.0f}" font-family="Georgia,\'Times New Roman\',serif" font-style="italic" font-size="19" fill="#e2e8f0">{esc(c["motto"])}</text>'
-    t += f'<rect x="48" y="{my+14:.0f}" width="70" height="3" rx="1.5" fill="url(#aur)"/>'
+    my = cy + 34 + 38
+    t += f'<text x="{cx}" y="{my:.0f}" text-anchor="middle" font-family="Georgia,\'Times New Roman\',serif" font-style="italic" font-size="18" fill="#cbd5e1">{esc(c["motto"])}</text>'
     img = ""
     if photo.exists():
         b64 = base64.b64encode(photo.read_bytes()).decode()
-        img = f'<image href="data:image/jpeg;base64,{b64}" x="{px}" y="{py}" width="{pw}" height="{ph}" preserveAspectRatio="xMidYMin slice" clip-path="url(#pc)"/>'
-    cx, cyb = px, py
-    br = f'''<g fill="none" stroke="url(#aur)" stroke-width="3" stroke-linecap="round" filter="url(#glow)">
-<path d="M{cx-12} {cyb+30}V{cyb-6}H{cx+24}"/><path d="M{cx+pw+12} {cyb+30}V{cyb-6}H{cx+pw-24}"/>
-<path d="M{cx-12} {cyb+ph-30}V{cyb+ph+6}H{cx+24}"/><path d="M{cx+pw+12} {cyb+ph-30}V{cyb+ph+6}H{cx+pw-24}"/></g>'''
-    body = f'''<defs>{GRAD}<clipPath id="pc"><rect x="{px}" y="{py}" width="{pw}" height="{ph}" rx="16"/></clipPath>
-<radialGradient id="aura" cx=".5" cy=".5" r=".5"><stop offset="0" stop-color="{C2}" stop-opacity=".40"/><stop offset=".6" stop-color="#d4a62a" stop-opacity=".12"/><stop offset="1" stop-color="{C2}" stop-opacity="0"/></radialGradient>
-<linearGradient id="scan" gradientUnits="userSpaceOnUse" x1="0" x2="0" y1="{py}" y2="{py+60}"><stop offset="0" stop-color="#fff" stop-opacity="0"/><stop offset=".5" stop-color="{C1}" stop-opacity=".28"/><stop offset="1" stop-color="#fff" stop-opacity="0"/><animateTransform attributeName="gradientTransform" type="translate" from="0 -60" to="0 {ph}" dur="4.5s" repeatCount="indefinite"/></linearGradient>
-<linearGradient id="fadeb" x1="0" y1="0" x2="0" y2="1"><stop offset=".65" stop-color="#05080f" stop-opacity="0"/><stop offset="1" stop-color="#05080f" stop-opacity=".85"/></linearGradient>
-<linearGradient id="pb" gradientUnits="userSpaceOnUse" x1="-268" x2="0" y1="0" y2="0" spreadMethod="repeat"><stop offset="0" stop-color="{C1}"/><stop offset=".5" stop-color="{C2}"/><stop offset="1" stop-color="{C3}"/><animateTransform attributeName="gradientTransform" type="translate" from="0 0" to="268 0" dur="5s" repeatCount="indefinite"/></linearGradient></defs>
-<ellipse cx="{px+pw/2}" cy="{py+ph/2}" rx="230" ry="250" fill="url(#aura)"/>
+        img = f'<image href="data:image/jpeg;base64,{b64}" x="{px}" y="{py}" width="{pw}" height="{ph}" preserveAspectRatio="xMidYMin slice" filter="url(#duo)"/>'
+    D = "9s"; KT = "0;.28;.9;1"
+    br = f"""<g fill="none" stroke="url(#aur)" stroke-width="3" stroke-linecap="round" filter="url(#glow)">
+<path d="M{px-12} {py+28}V{py-6}H{px+22}"/><path d="M{px+pw+12} {py+28}V{py-6}H{px+pw-22}"/>
+<path d="M{px-12} {py+ph-28}V{py+ph+6}H{px+22}"/><path d="M{px+pw+12} {py+ph-28}V{py+ph+6}H{px+pw-22}"/></g>"""
+    body = f"""<defs>{GRAD}
+<filter id="duo" color-interpolation-filters="sRGB"><feColorMatrix type="saturate" values="0"/><feComponentTransfer><feFuncR type="table" tableValues=".03 .30 .62 .92"/><feFuncG type="table" tableValues=".05 .42 .78 .97"/><feFuncB type="table" tableValues=".12 .60 .92 1"/></feComponentTransfer></filter>
+<pattern id="sl" width="4" height="4" patternUnits="userSpaceOnUse"><rect width="4" height="1.5" fill="#000" opacity=".30"/></pattern>
+<clipPath id="rv"><rect x="{px}" y="{py}" width="{pw}" height="0"><animate attributeName="height" values="0;{ph};{ph};0" keyTimes="{KT}" dur="{D}" repeatCount="indefinite"/></rect></clipPath>
+<clipPath id="fr"><rect x="{px}" y="{py}" width="{pw}" height="{ph}" rx="4"/></clipPath>
+<linearGradient id="pbd" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="{C1}" stop-opacity=".18"/><stop offset=".6" stop-color="{C2}" stop-opacity=".07"/><stop offset="1" stop-color="#0a0c14" stop-opacity=".9"/></linearGradient>
+<radialGradient id="aura" cx=".5" cy=".5" r=".5"><stop offset="0" stop-color="{C2}" stop-opacity=".34"/><stop offset=".65" stop-color="{C1}" stop-opacity=".08"/><stop offset="1" stop-color="{C2}" stop-opacity="0"/></radialGradient>
+<radialGradient id="halo" cx=".5" cy=".5" r=".5"><stop offset="0" stop-color="{C2}" stop-opacity=".14"/><stop offset="1" stop-color="{C2}" stop-opacity="0"/></radialGradient>
+<linearGradient id="shn" gradientUnits="userSpaceOnUse" x1="-110" x2="-30" y1="0" y2="0"><stop offset="0" stop-color="#fff" stop-opacity="0"/><stop offset=".5" stop-color="#fff" stop-opacity=".30"/><stop offset="1" stop-color="#fff" stop-opacity="0"/><animateTransform attributeName="gradientTransform" type="translate" from="0 0" to="520 0" dur="4.5s" repeatCount="indefinite"/></linearGradient></defs>
+<ellipse cx="{cx}" cy="{py+ph/2}" rx="340" ry="150" fill="url(#halo)"/>
+<ellipse cx="{px+pw/2}" cy="{py+ph/2}" rx="210" ry="230" fill="url(#aura)"/>
 {t}
-<rect x="{px}" y="{py}" width="{pw}" height="{ph}" rx="16" fill="#0b1020"/>
-{img}
-<g clip-path="url(#pc)"><rect x="{px}" y="{py}" width="{pw}" height="{ph}" fill="url(#fadeb)"/><rect x="{px}" y="{py}" width="{pw}" height="{ph}" fill="url(#scan)"/></g>
-<rect x="{px+1}" y="{py+1}" width="{pw-2}" height="{ph-2}" rx="15" fill="none" stroke="url(#pb)" stroke-width="2"/>
-{br}
-<g transform="translate({px+pw/2} {py+ph-24})"><rect x="-96" y="-14" width="192" height="28" rx="14" fill="#0a0c14" fill-opacity=".78" stroke="url(#aur)" stroke-width="1"/><circle cx="-78" r="3.2" fill="{C1}"><animate attributeName="opacity" values="1;.2;1" dur="1.6s" repeatCount="indefinite"/></circle><text x="6" y="4" text-anchor="middle" font-family="{MONO}" font-size="11" font-weight="700" letter-spacing="2" fill="#e2e8f0">{esc(c["name"].upper())}</text></g>'''
+<rect x="{px}" y="{py}" width="{pw}" height="{ph}" rx="4" fill="url(#pbd)"/>
+<g clip-path="url(#rv)">{img}<rect x="{px}" y="{py}" width="{pw}" height="{ph}" fill="url(#sl)"/></g>
+<g clip-path="url(#fr)"><rect x="{px}" y="{py}" width="{pw}" height="{ph}" fill="url(#shn)" transform="skewX(-16)"/></g>
+<rect x="{px}" y="{py}" width="{pw}" height="2.5" fill="url(#aur)" filter="url(#glow)"><animate attributeName="y" values="{py};{py+ph-2};{py+ph-2};{py}" keyTimes="{KT}" dur="{D}" repeatCount="indefinite"/><animate attributeName="opacity" values="1;1;0;0;1;1" keyTimes="0;.27;.3;.88;.9;1" dur="{D}" repeatCount="indefinite"/></rect>
+<rect x="{px+pw/2-14}" y="{py-6}" width="28" height="12" rx="3" fill="#0a0c14" stroke="url(#aur)" stroke-width="1.4"><animate attributeName="y" values="{py-6};{py+ph-8};{py+ph-8};{py-6}" keyTimes="{KT}" dur="{D}" repeatCount="indefinite"/><animate attributeName="opacity" values="1;1;0;0;1;1" keyTimes="0;.27;.3;.88;.9;1" dur="{D}" repeatCount="indefinite"/></rect>
+<rect x="{px}" y="{py}" width="{pw}" height="{ph}" rx="4" fill="none" stroke="url(#aur)" stroke-opacity=".55" stroke-width="1.2"/>
+{br}"""
     save("about.svg", W, H, body)
 
 # ---------------- scouting card + stats panels ----------------
