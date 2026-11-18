@@ -18,11 +18,11 @@
 
 <img src="assets/h3.svg" width="100%" alt="Featured Projects"/>
 
-<a href="https://github.com/DeepakGupta2006/ZeroSpoof"><img src="assets/project1.svg" width="49%" alt="Zero Spoof"/></a> 
-<a href="https://github.com/DeepakGupta2006/fake-news-detector"><img src="assets/project2.svg" width="49%" alt="Fake News Detector"/></a>
+<a href="https://github.com/DeepakGupta2006?tab=repositories"><img src="assets/project1.svg" width="49%" alt="Zero Spoof"/></a> 
+<a href="https://github.com/DeepakGupta2006?tab=repositories"><img src="assets/project2.svg" width="49%" alt="Fake News Detector"/></a>
 
-<a href="https://github.com/DeepakGupta2006/NextCart"><img src="assets/project3.svg" width="49%" alt="NextCart"/></a> 
-<a href="https://github.com/DeepakGupta2006/food-del"><img src="assets/project4.svg" width="49%" alt="Food Delivery"/></a>
+<a href="https://github.com/DeepakGupta2006?tab=repositories"><img src="assets/project3.svg" width="49%" alt="NextCart"/></a> 
+<a href="https://github.com/DeepakGupta2006?tab=repositories"><img src="assets/project4.svg" width="49%" alt="Food Delivery"/></a>
 
 
 <img src="assets/divider.svg" width="100%" alt=""/>
