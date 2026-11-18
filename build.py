@@ -16,7 +16,7 @@ CONFIG = {
     "gitfut_url": "https://gitfut.com/DeepakGupta2006?country=in",
     "card": {"overall": 64, "pos": "RW", "name": "D GUPTA", "pac": 67, "sho": 64, "pas": 54, "dri": 75, "def": 40, "phy": 63},
     "chips": ["he/him", "BCA", "Full-Stack", "AI / ML"],
-    "quote": ("Software is eating the world.", "MARC ANDREESSEN"),
+    "quote": ("Small steps every day build big things.", "DAILY REMINDER"),
     "stack_rows": [
         [("C++","cplusplus"),("React","react"),("Next.js","nextdotjs"),("Tailwind","tailwindcss"),("HTML","html5"),("CSS","css3"),("JavaScript","javascript"),("TypeScript","typescript"),("Python","python"),("Node.js","nodedotjs")],
         [("FastAPI","fastapi"),("VS Code","vscode"),("MongoDB","mongodb"),("PostgreSQL","postgresql"),("MySQL","mysql"),("Docker","docker"),("Git","git"),("GitHub","github"),("Flutter","flutter"),("Flask","flask")],
@@ -80,9 +80,9 @@ def banner(c, footer=False):
         for x in range(-700, 1701, 110):
             grid += f'<line x1="500" y1="{hz}" x2="{x}" y2="{H}"/>'
     blobs = f'''
-<circle r="140" fill="#1f8a58" opacity=".60" filter="url(#blur)"><animate attributeName="cx" values="180;360;180" dur="14s" repeatCount="indefinite"/><animate attributeName="cy" values="90;200;90" dur="11s" repeatCount="indefinite"/></circle>
-<circle r="150" fill="#d4a62a" opacity=".42" filter="url(#blur)"><animate attributeName="cx" values="520;640;520" dur="16s" repeatCount="indefinite"/><animate attributeName="cy" values="60;{H-40};60" dur="13s" repeatCount="indefinite"/></circle>
-<circle r="130" fill="#8a7a1e" opacity=".50" filter="url(#blur)"><animate attributeName="cx" values="860;700;860" dur="15s" repeatCount="indefinite"/><animate attributeName="cy" values="220;80;220" dur="12s" repeatCount="indefinite"/></circle>'''
+<circle r="140" fill="{C1}" opacity=".34" filter="url(#blur)"><animate attributeName="cx" values="180;360;180" dur="14s" repeatCount="indefinite"/><animate attributeName="cy" values="90;200;90" dur="11s" repeatCount="indefinite"/></circle>
+<circle r="150" fill="{C2}" opacity=".38" filter="url(#blur)"><animate attributeName="cx" values="520;640;520" dur="16s" repeatCount="indefinite"/><animate attributeName="cy" values="60;{H-40};60" dur="13s" repeatCount="indefinite"/></circle>
+<circle r="130" fill="{C3}" opacity=".30" filter="url(#blur)"><animate attributeName="cx" values="860;700;860" dur="15s" repeatCount="indefinite"/><animate attributeName="cy" values="220;80;220" dur="12s" repeatCount="indefinite"/></circle>'''
     corners = f'''<g fill="none" stroke="url(#aur)" stroke-width="2.5" stroke-linecap="round" filter="url(#glow)">
 <path d="M26 56V28a2 2 0 0 1 2-2h28"/><path d="M974 56V28a2 2 0 0 0-2-2h-28"/>
 <path d="M26 {H-56}v28a2 2 0 0 0 2 2h28"/><path d="M974 {H-56}v28a2 2 0 0 1-2 2h-28"/></g>'''
@@ -90,11 +90,10 @@ def banner(c, footer=False):
         body = f'''<defs>{GRAD}<filter id="blur" filterUnits="userSpaceOnUse" x="-400" y="-400" width="1800" height="1000"><feGaussianBlur stdDeviation="45"/></filter>
 <clipPath id="c"><rect width="{W}" height="{H}" rx="22"/></clipPath>
 <linearGradient id="nm" gradientUnits="userSpaceOnUse" x1="0" x2="500" y1="0" y2="0" spreadMethod="repeat"><stop offset="0" stop-color="#e0f2fe"/><stop offset=".33" stop-color="{C1}"/><stop offset=".66" stop-color="{C2}"/><stop offset="1" stop-color="#e0f2fe"/><animateTransform attributeName="gradientTransform" type="translate" from="0 0" to="500 0" dur="7s" repeatCount="indefinite"/></linearGradient></defs>
-<g clip-path="url(#c)"><rect width="{W}" height="{H}" fill="#07120d"/>{blobs}{stars(30,W,H,7)}</g>
+<g clip-path="url(#c)"><rect width="{W}" height="{H}" fill="{BG}"/>{blobs}{stars(30,W,H,7)}</g>
 <rect x="1.5" y="1.5" width="{W-3}" height="{H-3}" rx="21" fill="none" stroke="url(#aur)" stroke-opacity=".55" stroke-width="1.5"/>
 {corners}
-<text x="500" y="68" text-anchor="middle" font-family="{MONO}" font-size="20" font-weight="700" letter-spacing="10" fill="url(#nm)">THANKS FOR VISITING</text>
-<text x="500" y="100" text-anchor="middle" font-family="{SANS}" font-size="13" letter-spacing="2" fill="#94a3b8">made with curiosity · coffee · {esc(name)}</text>'''
+<text x="500" y="83" text-anchor="middle" font-family="{MONO}" font-size="20" font-weight="700" letter-spacing="10" fill="url(#nm)">THANKS FOR VISITING</text>'''
         save("footer.svg", W, H, body); return
     body = f'''<defs>{GRAD}<filter id="blur" filterUnits="userSpaceOnUse" x="-400" y="-400" width="1800" height="1000"><feGaussianBlur stdDeviation="50"/></filter>
 <clipPath id="c"><rect width="{W}" height="{H}" rx="22"/></clipPath>
@@ -102,8 +101,8 @@ def banner(c, footer=False):
 <mask id="gmask"><rect y="{hz}" width="{W}" height="105" fill="url(#gm)"/></mask>
 <linearGradient id="nm" gradientUnits="userSpaceOnUse" x1="0" x2="500" y1="0" y2="0" spreadMethod="repeat"><stop offset="0" stop-color="#e0f2fe"/><stop offset=".33" stop-color="{C1}"/><stop offset=".66" stop-color="{C2}"/><stop offset="1" stop-color="#e0f2fe"/><animateTransform attributeName="gradientTransform" type="translate" from="0 0" to="500 0" dur="7s" repeatCount="indefinite"/></linearGradient>
 <linearGradient id="sweep" gradientUnits="userSpaceOnUse" x1="-300" x2="-100" y1="0" y2="0"><stop offset="0" stop-color="#fff" stop-opacity="0"/><stop offset=".5" stop-color="#fff" stop-opacity=".10"/><stop offset="1" stop-color="#fff" stop-opacity="0"/><animateTransform attributeName="gradientTransform" type="translate" from="0 0" to="1400 0" dur="6s" repeatCount="indefinite"/></linearGradient></defs>
-<g clip-path="url(#c)"><rect width="{W}" height="{H}" fill="#07120d"/>{blobs}
-<g mask="url(#gmask)" stroke="#e0b94a" stroke-opacity=".45" stroke-width="1">{grid}</g><circle cx="500" cy="150" r="125" fill="none" stroke="#e0b94a" stroke-opacity=".14" stroke-dasharray="2 6"/><circle cx="500" cy="150" r="170" fill="none" stroke="#e0b94a" stroke-opacity=".07"/>
+<g clip-path="url(#c)"><rect width="{W}" height="{H}" fill="{BG}"/>{blobs}
+<g mask="url(#gmask)" stroke="{C1}" stroke-opacity=".35" stroke-width="1">{grid}</g>
 {stars(46,W,H,11,hz)}<rect width="{W}" height="{H}" fill="url(#sweep)" transform="skewX(-18)"/></g>
 <rect x="1.5" y="1.5" width="{W-3}" height="{H-3}" rx="21" fill="none" stroke="url(#aur)" stroke-opacity=".6" stroke-width="1.5"/>
 {corners}
@@ -430,9 +429,16 @@ def graph(c, st):
     save("graph.svg", W, H, body)
 
 def quote(c):
-    q, a = c["quote"]; W, H = 1000, 120
-    body = f'''<defs>{GRAD}</defs><text x="500" y="56" text-anchor="middle" font-family="Georgia,'Times New Roman',serif" font-style="italic" font-size="26" fill="#e2e8f0">“{esc(q)}”</text>
-<text x="500" y="90" text-anchor="middle" font-family="{MONO}" font-size="12" font-weight="700" letter-spacing="4" fill="url(#aur)">— {esc(a)}</text>'''
+    q, a = c["quote"]; W, H = 1000, 150
+    body = f"""<defs>{GRAD}<radialGradient id="qg" cx=".5" cy=".5" r=".5"><stop offset="0" stop-color="{C2}" stop-opacity=".22"/><stop offset="1" stop-color="{C2}" stop-opacity="0"/></radialGradient>
+<linearGradient id="qs" gradientUnits="userSpaceOnUse" x1="-240" x2="0" y1="0" y2="0"><stop offset="0" stop-color="#fff" stop-opacity="0"/><stop offset=".5" stop-color="{C1}"/><stop offset="1" stop-color="#fff" stop-opacity="0"/><animateTransform attributeName="gradientTransform" type="translate" from="0 0" to="1240 0" dur="5s" repeatCount="indefinite"/></linearGradient></defs>
+<rect x="2" y="2" width="{W-4}" height="{H-4}" rx="22" fill="{BG}" stroke="url(#aur)" stroke-opacity=".55" stroke-width="1.5"/>
+<ellipse cx="500" cy="75" rx="420" ry="62" fill="url(#qg)"/>
+<text x="52" y="100" font-family="Georgia,'Times New Roman',serif" font-size="92" font-weight="700" fill="url(#aur)" opacity=".75">“</text>
+<text x="948" y="128" text-anchor="end" font-family="Georgia,'Times New Roman',serif" font-size="92" font-weight="700" fill="url(#aur)" opacity=".75">”</text>
+<text x="500" y="76" text-anchor="middle" font-family="Georgia,'Times New Roman',serif" font-style="italic" font-size="27" fill="#e2e8f0">{esc(q)}</text>
+<text x="500" y="110" text-anchor="middle" font-family="{MONO}" font-size="12" font-weight="700" letter-spacing="5" fill="url(#aur)">— {esc(a)} —</text>
+<rect x="30" y="144" width="{W-60}" height="2" rx="1" fill="url(#qs)"/>"""
     save("quote.svg", W, H, body)
 
 def readme(c):
