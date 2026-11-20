@@ -22,8 +22,7 @@ CONFIG = {
         [("FastAPI","fastapi"),("VS Code","vscode"),("MongoDB","mongodb"),("PostgreSQL","postgresql"),("MySQL","mysql"),("Docker","docker"),("Git","git"),("GitHub","github"),("Flutter","flutter"),("Flask","flask")],
         [("Hugging Face","huggingface"),("Firebase","firebase"),("Vercel","vercel"),("Netlify","netlify"),("Linux","linux"),("Postman","postman"),("TensorFlow","tensorflow"),("PyTorch","pytorch"),("Pandas","pandas"),("NumPy","numpy")],
     ],
-    # Optional: type your numbers here to show them before the workflow has run. Leave None to use live data.
-    # Example: {"contributions": 120, "stars": 3, "prs": 5, "issues": 1, "repos": 9, "followers": 4}
+   
     "stats_manual": None,
     "projects": [
         {"name": "Zero Spoof", "desc": "Anti-spoofing system that detects fake faces, photos and replay attacks before they get access.",
