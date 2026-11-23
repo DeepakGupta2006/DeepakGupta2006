@@ -18,9 +18,9 @@ CONFIG = {
     "chips": ["he/him", "BCA", "Full-Stack", "AI / ML"],
     # Edit these three links. Email must start with mailto:
     "links": {
-        "linkedin":  "https://www.linkedin.com/in/Deepak Gupta",
+        "linkedin":  "https://www.linkedin.com/in/deepak-gupta-821945296/",
         "email":     "mailto:dg7842661@gmail.com",
-        "instagram": "https://www.instagram.com/deepakkk___21",
+        "instagram": "https://www.instagram.com/deepakkk____21",
     },
     # A different quote is picked each day (the stats workflow rebuilds this every 12 hours).
     "dev_quotes": [
