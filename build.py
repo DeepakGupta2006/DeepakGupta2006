@@ -16,29 +16,45 @@ CONFIG = {
     "gitfut_url": "https://gitfut.com/DeepakGupta2006?country=in",
     "card": {"overall": 64, "pos": "RW", "name": "D GUPTA", "pac": 67, "sho": 64, "pas": 54, "dri": 75, "def": 40, "phy": 63},
     "chips": ["he/him", "BCA", "Full-Stack", "AI / ML"],
-    "quote": ("Small steps every day build big things.", "DAILY REMINDER"),
+    # Edit these three links. Email must start with mailto:
+    "links": {
+        "linkedin":  "https://www.linkedin.com/in/YOUR-LINKEDIN-USERNAME",
+        "email":     "mailto:YOUR-EMAIL@gmail.com",
+        "instagram": "https://www.instagram.com/YOUR-INSTAGRAM-USERNAME",
+    },
+    # A different quote is picked each day (the stats workflow rebuilds this every 12 hours).
+    "dev_quotes": [
+        ("Programs must be written for people to read, and only incidentally for machines to execute.", "HAROLD ABELSON"),
+        ("Talk is cheap. Show me the code.", "LINUS TORVALDS"),
+        ("Premature optimization is the root of all evil.", "DONALD KNUTH"),
+        ("Make it work, make it right, make it fast.", "KENT BECK"),
+        ("Simplicity is prerequisite for reliability.", "EDSGER W. DIJKSTRA"),
+        ("Any fool can write code that a computer can understand. Good programmers write code that humans can understand.", "MARTIN FOWLER"),
+        ("The best way to predict the future is to invent it.", "ALAN KAY"),
+    ],
     "stack_rows": [
         [("C++","cplusplus"),("React","react"),("Next.js","nextdotjs"),("Tailwind","tailwindcss"),("HTML","html5"),("CSS","css3"),("JavaScript","javascript"),("TypeScript","typescript"),("Python","python"),("Node.js","nodedotjs")],
         [("FastAPI","fastapi"),("VS Code","vscode"),("MongoDB","mongodb"),("PostgreSQL","postgresql"),("MySQL","mysql"),("Docker","docker"),("Git","git"),("GitHub","github"),("Flutter","flutter"),("Flask","flask")],
         [("Hugging Face","huggingface"),("Firebase","firebase"),("Vercel","vercel"),("Netlify","netlify"),("Linux","linux"),("Postman","postman"),("TensorFlow","tensorflow"),("PyTorch","pytorch"),("Pandas","pandas"),("NumPy","numpy")],
     ],
-   
+    # Optional: type your numbers here to show them before the workflow has run. Leave None to use live data.
+    # Example: {"contributions": 120, "stars": 3, "prs": 5, "issues": 1, "repos": 9, "followers": 4}
     "stats_manual": None,
     "projects": [
         {"name": "Zero Spoof", "desc": "Anti-spoofing system that detects fake faces, photos and replay attacks before they get access.",
          "tags": ["Python", "OpenCV", "Deep Learning"], "lang": "Python", "color": "#34d399",
-         "url": "https://github.com/DeepakGupta2006/ZeroSpoof"},
+         "url": "https://github.com/DeepakGupta2006?tab=repositories"},
         {"name": "Fake News Detector", "desc": "NLP model that reads a news headline or article and tells you if it is real or fake.",
          "tags": ["Python", "NLP", "scikit-learn", "Flask"], "lang": "Python", "color": "#38bdf8",
-         "url": "https://github.com/DeepakGupta2006/fake-news-detector"},
+         "url": "https://github.com/DeepakGupta2006?tab=repositories"},
         {"name": "NextCart", "desc": "Full-stack shopping website with product pages, live cart, checkout and an admin panel.",
          "tags": ["Next.js", "React", "MongoDB", "Tailwind"], "lang": "JavaScript", "color": "#818cf8",
-         "url": "https://github.com/DeepakGupta2006/NextCart"},
+         "url": "https://github.com/DeepakGupta2006?tab=repositories"},
         {"name": "Food Delivery", "desc": "Food ordering app with menu browsing, cart, order placing and order tracking.",
          "tags": ["React", "Node.js", "Express", "MongoDB"], "lang": "JavaScript", "color": "#fb923c",
-         "url": "https://github.com/DeepakGupta2006/food-del"},
+         "url": "https://github.com/DeepakGupta2006?tab=repositories"},
     ],
-    "sections": ["About Me", "Tech Stack", "Featured Projects", "GitHub Stats", "Contribution Graph"],
+    "sections": ["About Me", "Tech Stack", "Featured Projects", "GitHub Stats", "Contribution Graph", "Let's Connect", "Random Dev Quote"],
 }
 
 C1, C2, C3 = "#22d3ee", "#818cf8", "#e879f9"
@@ -427,23 +443,51 @@ def graph(c, st):
 {grid}{chart}"""
     save("graph.svg", W, H, body)
 
-def quote(c):
-    q, a = c["quote"]; W, H = 1000, 150
+def connect(c):
+    import json
+    icons = json.loads((pathlib.Path(__file__).parent / "icons.json").read_text(encoding="utf-8"))
+    specs = [("linkedin", "LINKEDIN", ["#0a66c2", "#2b8be6"]),
+             ("gmail", "EMAIL", ["#c5221f", "#f0584a"]),
+             ("instagram", "INSTAGRAM", ["#f09433", "#dc2743", "#bc1888"])]
+    for key, label, cols in specs:
+        W, H = 200, 52
+        stops = "".join(f'<stop offset="{i/(len(cols)-1):.2f}" stop-color="{cl}"/>' for i, cl in enumerate(cols))
+        body = f"""<defs>{GRAD}<linearGradient id="bf" x1="0" y1="0" x2="1" y2="1">{stops}</linearGradient>
+<linearGradient id="bs" gradientUnits="userSpaceOnUse" x1="-90" x2="-10" y1="0" y2="0"><stop offset="0" stop-color="#fff" stop-opacity="0"/><stop offset=".5" stop-color="#fff" stop-opacity=".85"/><stop offset="1" stop-color="#fff" stop-opacity="0"/><animateTransform attributeName="gradientTransform" type="translate" from="0 0" to="330 0" dur="3.6s" repeatCount="indefinite"/></linearGradient>
+<clipPath id="bc"><rect x="2" y="2" width="{W-4}" height="{H-4}" rx="15"/></clipPath></defs>
+<rect x="2" y="2" width="{W-4}" height="{H-4}" rx="15" fill="url(#bf)" stroke="url(#aur)" stroke-width="2"/>
+<rect x="5" y="4" width="{W-10}" height="20" rx="12" fill="#fff" fill-opacity=".14"/>
+<g clip-path="url(#bc)"><rect width="{W}" height="{H}" fill="url(#bs)" opacity=".45" transform="skewX(-20)"/></g>
+<g transform="translate(26 14)"><path d="{icons[key]['path']}" fill="#fff"/></g>
+<text x="64" y="31.5" font-family="{MONO}" font-size="13.5" font-weight="800" letter-spacing="2" fill="#fff">{label}</text>"""
+        save(f"btn-{key}.svg", W, H, body)
+
+def devquote(c):
+    import datetime as _dt
+    q, a = random.Random(_dt.date.today().isoformat()).choice(c["dev_quotes"])
+    lines = textwrap.wrap(q, 52)
+    W = 1000; ly = 138; last = ly + (len(lines)-1)*36
+    H = int(last + 22 + 56)
+    txt = "".join(f'<text x="500" y="{ly+i*36}" text-anchor="middle" font-family="Georgia,\'Times New Roman\',serif" font-style="italic" font-size="26" fill="#f1f5f9">{esc(l)}</text>' for i, l in enumerate(lines))
     body = f"""<defs>{GRAD}<radialGradient id="qg" cx=".5" cy=".5" r=".5"><stop offset="0" stop-color="{C2}" stop-opacity=".22"/><stop offset="1" stop-color="{C2}" stop-opacity="0"/></radialGradient>
-<linearGradient id="qs" gradientUnits="userSpaceOnUse" x1="-240" x2="0" y1="0" y2="0"><stop offset="0" stop-color="#fff" stop-opacity="0"/><stop offset=".5" stop-color="{C1}"/><stop offset="1" stop-color="#fff" stop-opacity="0"/><animateTransform attributeName="gradientTransform" type="translate" from="0 0" to="1240 0" dur="5s" repeatCount="indefinite"/></linearGradient></defs>
-<rect x="2" y="2" width="{W-4}" height="{H-4}" rx="22" fill="{BG}" stroke="url(#aur)" stroke-opacity=".55" stroke-width="1.5"/>
-<ellipse cx="500" cy="75" rx="420" ry="62" fill="url(#qg)"/>
-<text x="52" y="100" font-family="Georgia,'Times New Roman',serif" font-size="92" font-weight="700" fill="url(#aur)" opacity=".75">“</text>
-<text x="948" y="128" text-anchor="end" font-family="Georgia,'Times New Roman',serif" font-size="92" font-weight="700" fill="url(#aur)" opacity=".75">”</text>
-<text x="500" y="76" text-anchor="middle" font-family="Georgia,'Times New Roman',serif" font-style="italic" font-size="27" fill="#e2e8f0">{esc(q)}</text>
-<text x="500" y="110" text-anchor="middle" font-family="{MONO}" font-size="12" font-weight="700" letter-spacing="5" fill="url(#aur)">— {esc(a)} —</text>
-<rect x="30" y="144" width="{W-60}" height="2" rx="1" fill="url(#qs)"/>"""
-    save("quote.svg", W, H, body)
+<linearGradient id="qb" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#151c32"/><stop offset="1" stop-color="#0b1020"/></linearGradient>
+<clipPath id="qc"><rect x="62" y="4" width="876" height="{H-8}" rx="20"/></clipPath>
+<linearGradient id="qs" gradientUnits="userSpaceOnUse" x1="-120" x2="-20" y1="0" y2="0"><stop offset="0" stop-color="#fff" stop-opacity="0"/><stop offset=".42" stop-color="{C1}" stop-opacity=".30"/><stop offset=".5" stop-color="#fff" stop-opacity=".9"/><stop offset=".58" stop-color="{C3}" stop-opacity=".30"/><stop offset="1" stop-color="#fff" stop-opacity="0"/><animateTransform attributeName="gradientTransform" type="translate" from="0 0" to="1160 0" dur="6s" repeatCount="indefinite"/></linearGradient></defs>
+<rect x="62" y="4" width="876" height="{H-8}" rx="20" fill="url(#qb)" stroke="url(#aur)" stroke-opacity=".75" stroke-width="1.6"/>
+<ellipse cx="500" cy="{H/2:.0f}" rx="380" ry="{H/2-10:.0f}" fill="url(#qg)"/>
+<g clip-path="url(#qc)"><rect width="{W}" height="{H}" fill="url(#qs)" opacity=".5" transform="skewX(-20)"/></g>
+<text x="500" y="104" text-anchor="middle" font-family="Georgia,'Times New Roman',serif" font-size="88" font-weight="700" fill="url(#aur)">“</text>
+{txt}
+<rect x="455" y="{last+22}" width="90" height="2" rx="1" fill="url(#aur)"/>
+<text x="500" y="{last+50}" text-anchor="middle" font-family="{MONO}" font-size="13" font-weight="800" letter-spacing="3" fill="url(#aur)">— {esc(a)}</text>"""
+    save("devquote.svg", W, H, body)
 
 def readme(c):
     u = c["username"]
     P = lambda i: f'<a href="{c["projects"][i]["url"]}"><img src="assets/project{i+1}.svg" width="49%" alt="{c["projects"][i]["name"]}"/></a>'
     n = len(c["projects"])
+    L = c["links"]
+    buttons = " ".join(f'<a href="{L[k]}"><img src="assets/btn-{i}.svg" height="52" alt="{n_}"/></a>' for k, i, n_ in [("linkedin", "linkedin", "LinkedIn"), ("email", "gmail", "Email"), ("instagram", "instagram", "Instagram")])
     proj = "\n".join(P(i) + ("\n" if i % 2 else " ") for i in range(n))
     md = f'''<div align="center">
 
@@ -482,7 +526,17 @@ def readme(c):
 
 <img src="assets/graph.svg" width="100%" alt="Contribution graph"/>
 
-<img src="assets/quote.svg" width="100%" alt="quote"/>
+<img src="assets/divider.svg" width="100%" alt=""/>
+
+<img src="assets/h6.svg" width="100%" alt="Let's Connect"/>
+
+{buttons}
+
+<img src="assets/divider.svg" width="100%" alt=""/>
+
+<img src="assets/h7.svg" width="100%" alt="Random Dev Quote"/>
+
+<img src="assets/devquote.svg" width="100%" alt="Random dev quote"/>
 
 <img src="assets/footer.svg" width="100%" alt="Thanks for visiting"/>
 
@@ -493,6 +547,6 @@ def readme(c):
 if __name__ == "__main__":
     c = CONFIG
     st = load_stats() or c.get("stats_manual")
-    banner(c); banner(c, footer=True); divider(); chips(c); about(c); card(c); panels(c, st); graph(c, st); stack(c); cards(c); quote(c)
+    banner(c); banner(c, footer=True); divider(); chips(c); about(c); card(c); panels(c, st); graph(c, st); stack(c); cards(c); connect(c); devquote(c)
     for i, s in enumerate(c["sections"], 1): header(s, i)
     readme(c); print("built:", sorted(p.name for p in OUT.iterdir()))

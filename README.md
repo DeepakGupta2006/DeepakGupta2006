@@ -18,11 +18,11 @@
 
 <img src="assets/h3.svg" width="100%" alt="Featured Projects"/>
 
-<a href="https://github.com/DeepakGupta2006/ZeroSpoof"><img src="assets/project1.svg" width="49%" alt="Zero Spoof"/></a> 
-<a href="https://github.com/DeepakGupta2006/fake-news-detector"><img src="assets/project2.svg" width="49%" alt="Fake News Detector"/></a>
+<a href="https://github.com/DeepakGupta2006?tab=repositories"><img src="assets/project1.svg" width="49%" alt="Zero Spoof"/></a> 
+<a href="https://github.com/DeepakGupta2006?tab=repositories"><img src="assets/project2.svg" width="49%" alt="Fake News Detector"/></a>
 
-<a href="https://github.com/DeepakGupta2006/NextCart"><img src="assets/project3.svg" width="49%" alt="NextCart"/></a> 
-<a href="https://github.com/DeepakGupta2006/food-del"><img src="assets/project4.svg" width="49%" alt="Food Delivery"/></a>
+<a href="https://github.com/DeepakGupta2006?tab=repositories"><img src="assets/project3.svg" width="49%" alt="NextCart"/></a> 
+<a href="https://github.com/DeepakGupta2006?tab=repositories"><img src="assets/project4.svg" width="49%" alt="Food Delivery"/></a>
 
 
 <img src="assets/divider.svg" width="100%" alt=""/>
@@ -40,7 +40,17 @@
 
 <img src="assets/graph.svg" width="100%" alt="Contribution graph"/>
 
-<img src="assets/quote.svg" width="100%" alt="quote"/>
+<img src="assets/divider.svg" width="100%" alt=""/>
+
+<img src="assets/h6.svg" width="100%" alt="Let's Connect"/>
+
+<a href="https://www.linkedin.com/in/YOUR-LINKEDIN-USERNAME"><img src="assets/btn-linkedin.svg" height="52" alt="LinkedIn"/></a> <a href="mailto:YOUR-EMAIL@gmail.com"><img src="assets/btn-gmail.svg" height="52" alt="Email"/></a> <a href="https://www.instagram.com/YOUR-INSTAGRAM-USERNAME"><img src="assets/btn-instagram.svg" height="52" alt="Instagram"/></a>
+
+<img src="assets/divider.svg" width="100%" alt=""/>
+
+<img src="assets/h7.svg" width="100%" alt="Random Dev Quote"/>
+
+<img src="assets/devquote.svg" width="100%" alt="Random dev quote"/>
 
 <img src="assets/footer.svg" width="100%" alt="Thanks for visiting"/>
 
