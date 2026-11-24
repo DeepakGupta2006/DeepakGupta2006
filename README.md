@@ -44,7 +44,7 @@
 
 <img src="assets/h6.svg" width="100%" alt="Let's Connect"/>
 
-<a href="https://www.linkedin.com/in/deepak-gupta-821945296/"><img src="assets/btn-linkedin.svg" height="52" alt="LinkedIn"/></a> <a href="mailto:dg7842661@gmail.com"><img src="assets/btn-gmail.svg" height="52" alt="Email"/></a> <a href="https://www.instagram.com/deepakkk____21"><img src="assets/btn-instagram.svg" height="52" alt="Instagram"/></a>
+<a href="https://www.linkedin.com/in/deepak-gupta-821945296/"><img src="assets/btn-linkedin.svg" height="52" alt="LinkedIn"/></a> <a href="https://mail.google.com/mail/?view=cm&fs=1&to=dg7842661@gmail.com&su=Hello%20Deepak"><img src="assets/btn-gmail.svg" height="52" alt="Email"/></a> <a href="https://www.instagram.com/deepakkk____21"><img src="assets/btn-instagram.svg" height="52" alt="Instagram"/></a>
 
 <img src="assets/divider.svg" width="100%" alt=""/>
 

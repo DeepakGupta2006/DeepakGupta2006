@@ -19,7 +19,7 @@ CONFIG = {
     # Edit these three links. Email must start with mailto:
     "links": {
         "linkedin":  "https://www.linkedin.com/in/deepak-gupta-821945296/",
-        "email":     "mailto:dg7842661@gmail.com",
+        "email":     "https://mail.google.com/mail/?view=cm&fs=1&to=dg7842661@gmail.com&su=Hello%20Deepak",
         "instagram": "https://www.instagram.com/deepakkk____21",
     },
     # A different quote is picked each day (the stats workflow rebuilds this every 12 hours).
