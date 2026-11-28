@@ -8,6 +8,6 @@
 <ellipse cx="500" cy="108" rx="380" ry="98" fill="url(#qg)"/>
 <g clip-path="url(#qc)"><rect width="1000" height="216" fill="url(#qs)" opacity=".5" transform="skewX(-20)"/></g>
 <text x="500" y="104" text-anchor="middle" font-family="Georgia,'Times New Roman',serif" font-size="88" font-weight="700" fill="url(#aur)">“</text>
-<text x="500" y="138" text-anchor="middle" font-family="Georgia,'Times New Roman',serif" font-style="italic" font-size="26" fill="#f1f5f9">Simplicity is prerequisite for reliability.</text>
+<text x="500" y="138" text-anchor="middle" font-family="Georgia,'Times New Roman',serif" font-style="italic" font-size="26" fill="#f1f5f9">Premature optimization is the root of all evil.</text>
 <rect x="455" y="160" width="90" height="2" rx="1" fill="url(#aur)"/>
-<text x="500" y="188" text-anchor="middle" font-family="'JetBrains Mono','Fira Code',Consolas,'Courier New',monospace" font-size="13" font-weight="800" letter-spacing="3" fill="url(#aur)">— EDSGER W. DIJKSTRA</text></svg>
+<text x="500" y="188" text-anchor="middle" font-family="'JetBrains Mono','Fira Code',Consolas,'Courier New',monospace" font-size="13" font-weight="800" letter-spacing="3" fill="url(#aur)">— DONALD KNUTH</text></svg>
